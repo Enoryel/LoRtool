@@ -16,7 +16,7 @@
   // Boucle pour générer le nombre de joueur·euse·s
 
   $nbr_joueur_min = 2;
-  $nbr_joueur_max = 10;
+  $nbr_joueur_max = 8;
   for ($i = $nbr_joueur_min; $i <= $nbr_joueur_max; $i++) {
     echo "<option value='" . $i . "'>" . $i . "</option>";
   }
