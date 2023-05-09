@@ -28,45 +28,33 @@ function playerSelector() {
 function addPlayer() {      
     while (compteur_joueurs_old < compteur_joueurs){
         compteur_joueurs_old++;
-        generateNewPlayer();
         console.log("J'ajoute le joueur " + compteur_joueurs_old);
+        generateNewPlayer();
     };
 }
 
 function generateNewPlayer() {
     //Définition des variables de base
-    var newplayerID = "player" + compteur_joueurs_old;
     var copiedPlayer = "player" + (compteur_joueurs_old - 1);
-    var elem;
-    var clone;
+    var newPlayerID = "player" + compteur_joueurs_old;
+    var newPlayerName = newPlayerID + "_name";
+    var newPlayerNameValue = "Joueur " + compteur_joueurs; //À MODIFIER
+    var newPlayerRace = newPlayerID + "_race";
 
-    //Création et incorporation de la nouvelle div
-    var player_chara = document.getElementById("player_chara")
-    var newplayerDiv = document.createElement("div");
-    newplayerDiv.id = newplayerID;
-    player_chara.appendChild(newplayerDiv);
+    console.log("Joueur à copier = " + copiedPlayer);
+    console.log("Nouveau joueur = " + newPlayerID);
 
+    var elem = document.getElementById(copiedPlayer);
+    var clone = elem.cloneNode(true);
+    clone.id = newPlayerID;
+    
+    clone.firstElementChild.id = newPlayerName;
+    clone.firstElementChild.value = newPlayerNameValue;
+    clone.lastElementChild.id = newPlayerRace;
 
-    //Création et incorporation du nouvel input de nom
-    var newplayerName = newplayerID + "_name";
-    var newplayerNameValue = "Joueur " + newplayerID;
-    var copiedPlayerName = copiedPlayer + "_name";
-
-    elem = document.getElementById(copiedPlayerName);
-    /*console.log(copiedPlayerName);
-    return;*/
-    clone = elem.cloneNode(true);
-    clone.name = newplayerName;
-    clone.value = newplayerNameValue;
-    newplayerDiv.appendChild(clone);
-
-    //Création et incorporation du nouveau sélecteur de race
-    var newplayerRace = newplayerID + "_race";
-    elem = document.getElementById(copiedPlayer + "_race");
-    clone = elem.cloneNode(true);
-    clone.name = newplayerRace;
-    newplayerDiv.appendChild(clone);
+    elem.after(clone);
 }
+    
 
 //FONCTIONS SUPPRESSION DE JOUEURS·EUSE·S
 
