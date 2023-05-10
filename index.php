@@ -9,8 +9,10 @@
 
   <body>
     <h1>LoRTool</h1>
-<!--RÉCUPÉRATION DES RACES DEPUIS LA BASE DE DONNÉES-->
+
+<!--RÉCUPÉRATION DES INFOS DEPUIS LA BASE DE DONNÉES-->
     <?php
+      //Configuration accès database
       $ser="localhost:3306";
       $user="root";
       $pass="";
@@ -21,6 +23,19 @@
       $conn->query("SET CHARACTER SET utf8");  
       $conn->query("SET SESSION collation_connection = 'utf8_unicode_ci'");
 
+      //Récupération nombre de joueurs min
+      $requete = "SELECT valeur FROM setup WHERE option = 'nbr_joueurs_min'";
+      $resultat = mysqli_query($conn, $requete);
+      $row = mysqli_fetch_row($resultat);
+      $nbr_joueurs_min = $row[0];
+
+      //Récupération nombre de joueurs max
+      $requete = "SELECT valeur FROM setup WHERE option = 'nbr_joueurs_max'";
+      $resultat = mysqli_query($conn, $requete);
+      $row = mysqli_fetch_row($resultat);
+      $nbr_joueurs_max = $row[0];
+
+      //Récupération races
       $requete = "SELECT * FROM races_list";
       $resultat = mysqli_query($conn, $requete);
 
@@ -35,20 +50,22 @@
     ?>
 
 <!--SELECTEUR NOMBRE DE JOUEUR·EUSE·S-->
-<h2>Nombre de joueur·euse·s</h2>
-    <div id="player_number_selector">
-      <select name="player_nbr" id="player_nbr" onchange="playerSelector()">
-        <?php
-          // Boucle pour générer le nombre de joueur·euse·s
+      
+    <h2>Nombre de joueur·euse·s</h2>
+        <div id="player_number_selector">
+          <select name="player_nbr" id="player_nbr" onchange="playerSelector()">
+            <?php
+              //Définition et transfert nbr joueur·euse·s
+              $nbr_joueurs_min = 2;
+              $nbr_joueurs_max = 8;
 
-          $nbr_joueur_min = 2;
-          $nbr_joueur_max = 8;
-          for ($i = $nbr_joueur_min; $i <= $nbr_joueur_max; $i++) {
-            echo "<option value='" . $i . "'>" . $i . "</option>";
-          }
-          ?>
-      </select>
-    </div>
+              // Boucle pour générer le nombre de joueur·euse·s
+              for ($i = $nbr_joueurs_min; $i <= $nbr_joueurs_max; $i++) {
+                echo "<option value='" . $i . "'>" . $i . " joueurs</option>";
+              }
+              ?>
+          </select>
+        </div>
 
 <!--SELECTEUR RACES DES JOUEUR·EUSE·S-->
 <h2>Noms et races jouées</h2>
