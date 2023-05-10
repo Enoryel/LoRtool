@@ -1,6 +1,11 @@
 var compteur_joueurs = 2;
 var compteur_joueurs_old = null;
 
+
+
+//GÉNÉRATION DES SLOTS JOUEURS
+
+
 //MODIFICATEUR DU NOMBRE DE JOUEUR·EUSE·S
 function playerSelector() {
     compteur_joueurs_old = compteur_joueurs;
@@ -38,7 +43,7 @@ function generateNewPlayer() {
     var copiedPlayer = "player" + (compteur_joueurs_old - 1);
     var newPlayerID = "player" + compteur_joueurs_old;
     var newPlayerName = newPlayerID + "_name";
-    var newPlayerNameValue = "Joueur " + compteur_joueurs; //À MODIFIER
+    var newPlayerNameValue = "Joueur " + compteur_joueurs_old; //À MODIFIER
     var newPlayerRace = newPlayerID + "_race";
 
     console.log("Joueur à copier = " + copiedPlayer);
@@ -47,6 +52,7 @@ function generateNewPlayer() {
     var elem = document.getElementById(copiedPlayer);
     var clone = elem.cloneNode(true);
     clone.id = newPlayerID;
+    clone.style.display ="none";
     
     clone.firstElementChild.id = newPlayerName;
     clone.firstElementChild.value = newPlayerNameValue;
