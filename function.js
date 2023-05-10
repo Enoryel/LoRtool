@@ -1,12 +1,31 @@
 var compteur_joueurs = 2;
 var compteur_joueurs_old = null;
 
+//GÉNÉRATIONS DE SLOTS JOUEURS
+function generateNewPlayer(ID) {
+    //Définition des variables de base
+    var copiedPlayer = "player" + (ID - 1);
+    var newPlayerID = "player" + ID;
+    var newPlayerName = newPlayerID + "_name";
+    var newPlayerNameValue = "Joueur " + ID;
+    var newPlayerRace = newPlayerID + "_race";
 
+    // console.log(copiedPlayer);
+    // console.log("Nouveau joueur = " + newPlayerID);     
 
-//GÉNÉRATION DES SLOTS JOUEURS
+    var elem = document.getElementById(copiedPlayer);
+    var clone = elem.cloneNode(true);
+    clone.id = newPlayerID;
+    //clone.style.display ="none";
+    
+    clone.firstElementChild.id = newPlayerName;
+    clone.firstElementChild.value = newPlayerNameValue;
+    clone.lastElementChild.id = newPlayerRace;
 
+    elem.after(clone);
+};
 
-//MODIFICATEUR DU NOMBRE DE JOUEUR·EUSE·S
+//MODIFICATION EN FONCTION DU SELECTEUR DE NOMBRE DE JOUEURS
 function playerSelector() {
     compteur_joueurs_old = compteur_joueurs;
     compteur_joueurs = document.getElementById('player_nbr').value;
@@ -34,31 +53,8 @@ function addPlayer() {
     while (compteur_joueurs_old < compteur_joueurs){
         compteur_joueurs_old++;
         console.log("J'ajoute le joueur " + compteur_joueurs_old);
-        generateNewPlayer();
+        generateNewPlayer(); //MAUVAISE FONCTION
     };
-}
-
-function generateNewPlayer() {
-    //Définition des variables de base
-    var copiedPlayer = "player" + (compteur_joueurs_old - 1);
-    var newPlayerID = "player" + compteur_joueurs_old;
-    var newPlayerName = newPlayerID + "_name";
-    var newPlayerNameValue = "Joueur " + compteur_joueurs_old; //À MODIFIER
-    var newPlayerRace = newPlayerID + "_race";
-
-    console.log("Joueur à copier = " + copiedPlayer);
-    console.log("Nouveau joueur = " + newPlayerID);
-
-    var elem = document.getElementById(copiedPlayer);
-    var clone = elem.cloneNode(true);
-    clone.id = newPlayerID;
-    clone.style.display ="none";
-    
-    clone.firstElementChild.id = newPlayerName;
-    clone.firstElementChild.value = newPlayerNameValue;
-    clone.lastElementChild.id = newPlayerRace;
-
-    elem.after(clone);
 }
     
 
