@@ -22,7 +22,8 @@
           <select name="player_nbr" id="player_nbr" onchange="playerSelector()">
             <?php
               // Boucle pour générer le nombre de joueur·euse·s
-              for ($i = $nbr_joueurs_min; $i <= $nbr_joueurs_max; $i++) {
+              for ($i = $nbr_joueurs_min; $i <= $nbr_joueurs_max; $i++)
+              {
                 echo "<option value='" . $i . "'>" . $i . " joueurs</option>";
               }
               ?>

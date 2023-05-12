@@ -16,13 +16,14 @@ function generateNewPlayer(ID) {
     var elem = document.getElementById(copiedPlayer);
     var clone = elem.cloneNode(true);
     clone.id = newPlayerID;
-    //clone.style.display ="none";
+    clone.style.display ="none";
     
     clone.firstElementChild.id = newPlayerName;
     clone.firstElementChild.value = newPlayerNameValue;
     clone.lastElementChild.id = newPlayerRace;
 
     elem.after(clone);
+    console.log("Joueur " + newPlayerID + " généré");
 };
 
 //MODIFICATION EN FONCTION DU SELECTEUR DE NOMBRE DE JOUEURS
@@ -53,21 +54,29 @@ function addPlayer() {
     while (compteur_joueurs_old < compteur_joueurs){
         compteur_joueurs_old++;
         console.log("J'ajoute le joueur " + compteur_joueurs_old);
-        generateNewPlayer(); //MAUVAISE FONCTION
+        HidePlayer();
     };
 }
+
+function HidePlayer(){
+    playerToHideID = "player" + compteur_joueurs_old;
+    playerToHide = document.getElementById(playerToHideID);
+    playerToHide.style.display = "block";
+};
     
 
 //FONCTIONS SUPPRESSION DE JOUEURS·EUSE·S
 
 function removePlayer() {
     while (compteur_joueurs_old > compteur_joueurs){  
-        removePlayerDiv();
+        hidePlayer();
         console.log("Je supprime le joueur " + compteur_joueurs_old);
         compteur_joueurs_old--;
     };
 }
 
-function removePlayerDiv() {
-
+function hidePlayer() {
+    playerToHideID = "player" + compteur_joueurs_old;
+    playerToHide = document.getElementById(playerToHideID);
+    playerToHide.style.display = "none";
 };
