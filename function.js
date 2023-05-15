@@ -80,3 +80,24 @@ function hidePlayer() {
     playerToHide = document.getElementById(playerToHideID);
     playerToHide.style.display = "none";
 };
+
+//VALIDATION LISTE DES JOUEUR·EUSE·S
+
+function playersForm_submit() {
+
+    // Switch de page
+    document.getElementById("page1").style.display="none";
+    document.getElementById("page2").style.display="block";
+
+    const form = document.getElementById('playersForm');
+    const formData = new FormData(form);
+    
+    for (const [key, value] of formData) {
+        PlayerList.textContent += `${key}: ${value}\n`;
+    }
+};
+
+//AFFICHER LISTE DES JOUEUR·EUSE·S
+function displayPlayers() {
+    document.getElementById("PlayerList").style.display = "block";
+}
