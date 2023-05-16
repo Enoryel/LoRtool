@@ -40,7 +40,7 @@
             <div id="player_chara"> <!--Pour le css plus tard-->
 
               <div id="player1">
-                <input id="player1_name" type="text" value="Joueur 1">
+                <input name="player1_name" id="player1_name" type="text" value="Joueur 1">
                 <select id="player1_race">
                   <?php
                       foreach($liste_races as $option) {
@@ -50,8 +50,10 @@
                 </select>
               </div>
 
+      
+
               <div id="player2">
-                <input id="player2_name" type="text" value="Joueur 2">
+                <input name="player2_name" id="player2_name" type="text" value="Joueur 2">
                 <select id="player2_race">
                   <?php
                       foreach($liste_races as $option) {
@@ -71,8 +73,8 @@
         ?>
 
         <input type="submit" id="submit_button" value="Confirmer">
-    
-    </form>
+
+      </form>
     
     
     </div>
@@ -84,7 +86,6 @@
       <input type="button" onclick="displayPlayers()" value="Afficher joueurs">
 
       <div id="PlayerList" style="display:none">
-        <p>PROUT</p>
       </div>
 
     </div>

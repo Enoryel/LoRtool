@@ -91,9 +91,11 @@ function playersForm_submit() {
 
     const form = document.getElementById('playersForm');
     const formData = new FormData(form);
+
+    let playerList = document.getElementById("PlayerList");
     
-    for (const [key, value] of formData) {
-        PlayerList.textContent += `${key}: ${value}\n`;
+    for (var [name, value] of formData) {
+        PlayerList.innerHTML += (name + ': ' + value + '<br />'); //PREND EN COMPTE LES JOUEURS INVISIBLES
     }
 };
 
