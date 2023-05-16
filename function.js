@@ -1,7 +1,7 @@
 var compteur_joueurs = 2;
 var compteur_joueurs_old = null;
 
-//GÉNÉRATIONS DE SLOTS JOUEURS
+//GÉNÉRATIONS DES SLOTS JOUEURS
 function generateNewPlayer(ID) {
     //Définition des variables de base
     var copiedPlayer = "player" + (ID - 1);
@@ -18,7 +18,7 @@ function generateNewPlayer(ID) {
     clone.id = newPlayerID;
     clone.style.display ="none";
     
-    clone.firstElementChild.id = newPlayerName;
+    clone.firstElementChild.name = newPlayerName;
     clone.firstElementChild.value = newPlayerNameValue;
     clone.lastElementChild.id = newPlayerRace;
 
