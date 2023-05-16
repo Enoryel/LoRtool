@@ -93,10 +93,14 @@ function playersForm_submit() {
     const formData = new FormData(form);
 
     let playerList = document.getElementById("PlayerList");
-    
-    for (var [name, value] of formData) {
-        PlayerList.innerHTML += (name + ': ' + value + '<br />'); //PREND EN COMPTE LES JOUEURS INVISIBLES
+    console.log('compteur joueur = ' + compteur_joueurs);
+
+    let compteur_playerForm = 1;
+    for(compteur_playerForm; compteur_playerForm <= compteur_joueurs; compteur_playerForm++){
+        elementToGet = ('player' + compteur_playerForm + '_name');
+        playerList.innerHTML += (formData.get(elementToGet));
     }
+    
 };
 
 //AFFICHER LISTE DES JOUEUR·EUSE·S
