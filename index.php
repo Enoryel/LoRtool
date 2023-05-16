@@ -41,7 +41,7 @@
 
               <div id="player1">
                 <input name="player1_name" type="text" value="Joueur 1">
-                <select id="player1_race">
+                <select name="player1_race">
                   <?php
                       foreach($liste_races as $option) {
                         echo '<option value="' . $option . '">' . $option . '</option>';
@@ -54,7 +54,7 @@
 
               <div id="player2">
                 <input name="player2_name" type="text" value="Joueur 2">
-                <select id="player2_race">
+                <select name  ="player2_race">
                   <?php
                       foreach($liste_races as $option) {
                         echo '<option value="' . $option . '">' . $option . '</option>';
