@@ -95,11 +95,11 @@ function playersForm_submit() {
     const formData = new FormData(form);
 
     let playerList = document.getElementById("PlayerList");
-    console.log('compteur joueur = ' + compteur_joueurs);
+    console.log(`compteur joueur ${compteur_joueurs}`);
 
     let compteur_playerForm = 1;
     for(compteur_playerForm; compteur_playerForm <= compteur_joueurs; compteur_playerForm++){
-        let playerToGet = 'player' + compteur_playerForm;
+        let playerToGet = 'player' + compteur_playerForm; //elementToGet = `player${compteur_playerForm}_name`
         let playerToGet_name = formData.get(playerToGet + '_name');
         let playerToGet_race = formData.get(playerToGet + '_race');
 
