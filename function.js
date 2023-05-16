@@ -1,5 +1,7 @@
+/**********************SCRIPTS LORTOOL**********************/
 var compteur_joueurs = 2;
 var compteur_joueurs_old = null;
+var infosJoueurs = [];
 
 //GÉNÉRATIONS DES SLOTS JOUEURS
 function generateNewPlayer(ID) {
@@ -97,10 +99,13 @@ function playersForm_submit() {
 
     let compteur_playerForm = 1;
     for(compteur_playerForm; compteur_playerForm <= compteur_joueurs; compteur_playerForm++){
-        elementToGet = ('player' + compteur_playerForm + '_name');
-        playerList.innerHTML += (formData.get(elementToGet));
+        let playerToGet = 'player' + compteur_playerForm;
+        let playerToGet_name = formData.get(playerToGet + '_name');
+        let playerToGet_race = formData.get(playerToGet + '_race');
+
+        infosJoueurs[playerToGet_name] = playerToGet_race;
     }
-    
+    console.log(infosJoueurs[caca]);
 };
 
 //AFFICHER LISTE DES JOUEUR·EUSE·S
