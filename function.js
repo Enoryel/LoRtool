@@ -91,20 +91,24 @@ function playersForm_submit() {
     document.getElementById("page1").style.display="none";
     document.getElementById("page2").style.display="block";
 
-    const form = document.getElementById('playersForm');
-    const formData = new FormData(form);
+    var form = document.getElementById('playersForm');
+    var formData = new FormData(form);
+    var PlayerList = document.getElementById('PlayerList');
 
-    for(let compteur_playerForm = 1; compteur_playerForm <= compteur_joueurs; compteur_playerForm++){
-        let playerToGet = 'player' + compteur_playerForm; //elementToGet = `player${compteur_playerForm}_name`
-        let playerToGet_name = formData.get(playerToGet + '_name');
-        let playerToGet_Armee = formData.get(playerToGet + '_armee');
+    // for(let compteur_playerForm = 1; compteur_playerForm <= compteur_joueurs; compteur_playerForm++){
+    //     let playerToGet = 'player' + compteur_playerForm; //elementToGet = `player${compteur_playerForm}_name`
+    //     let playerToGet_name = formData.get(playerToGet + '_name');
+    //     let playerToGet_Armee = formData.get(playerToGet + '_armee');
 
-        infosJoueurs[playerToGet_name] = playerToGet_Armee;
-    }
-    console.log(infosJoueurs[player1_name]);
-};
+    //     infosJoueurs[playerToGet_name] = playerToGet_Armee;
+    // }
+
+    for (var [name, value] of formData) {
+        PlayerList.textContent += `${value}`;
+    };
+}
 
 //AFFICHER LISTE DES JOUEUR·EUSE·S
 function displayPlayers() {
-    document.getElementById("PlayerList").style.display = "block";
-}
+    PlayerList.style.display = "block";
+};
