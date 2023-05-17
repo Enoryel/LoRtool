@@ -10,7 +10,7 @@
   <body>
     <h1>LoRTool</h1>
 
-    <!--DÉBUT DE LA PAGE 1 (SÉLECTIONS JOUEUR·EUSE·S--/RACE)-->
+    <!--DÉBUT DE LA PAGE 1 (SÉLECTIONS JOUEUR·EUSE·S--/armee)-->
     <div id="page1">
 
       <!--RÉCUPÉRATION DES DONNÉES DEPUIS LA DATABASE-->
@@ -36,14 +36,14 @@
 
       <form id ="playersForm" onsubmit="playersForm_submit();return false">
 
-        <h2>Noms et races jouées</h2>
+        <h2>Noms et armées jouées</h2>
             <div id="player_chara"> <!--Pour le css plus tard-->
 
               <div id="player1">
                 <input name="player1_name" type="text" value="Joueur 1">
-                <select name="player1_race">
+                <select name="player1_armee">
                   <?php
-                      foreach($liste_races as $option) {
+                      foreach($liste_armees as $option) {
                         echo '<option value="' . $option . '">' . $option . '</option>';
                       }
                     ?>
@@ -54,9 +54,9 @@
 
               <div id="player2">
                 <input name="player2_name" type="text" value="Joueur 2">
-                <select name  ="player2_race">
+                <select name  ="player2_armee">
                   <?php
-                      foreach($liste_races as $option) {
+                      foreach($liste_armees as $option) {
                         echo '<option value="' . $option . '">' . $option . '</option>';
                       }
                     ?>

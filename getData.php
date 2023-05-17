@@ -26,10 +26,10 @@
       $requete = "SELECT * FROM races_list";
       $resultat = mysqli_query($conn, $requete);
 
-      $liste_races = [];
+      $liste_armees = [];
       $compteur = 0;
       while ($donnees = mysqli_fetch_array($resultat)) {
-        $liste_races[$compteur] = $donnees["NOM"];
+        $liste_armees[$compteur] = $donnees["NOM"];
         $compteur ++;
       }
 

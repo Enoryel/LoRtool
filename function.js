@@ -10,7 +10,7 @@ function generateNewPlayer(ID) {
     var newPlayerID = "player" + ID;
     var newPlayerName = newPlayerID + "_name";
     var newPlayerNameValue = "Joueur " + ID;
-    var newPlayerRace = newPlayerID + "_race";
+    var newPlayerArmee = newPlayerID + "_armee";
 
     // console.log(copiedPlayer);
     // console.log("Nouveau joueur = " + newPlayerID);     
@@ -22,7 +22,7 @@ function generateNewPlayer(ID) {
     
     clone.firstElementChild.name = newPlayerName;
     clone.firstElementChild.value = newPlayerNameValue;
-    clone.lastElementChild.id = newPlayerRace;
+    clone.lastElementChild.id = newPlayerArmee;
 
     elem.after(clone);
     console.log("Joueur " + newPlayerID + " généré");
@@ -101,9 +101,9 @@ function playersForm_submit() {
     for(compteur_playerForm; compteur_playerForm <= compteur_joueurs; compteur_playerForm++){
         let playerToGet = 'player' + compteur_playerForm; //elementToGet = `player${compteur_playerForm}_name`
         let playerToGet_name = formData.get(playerToGet + '_name');
-        let playerToGet_race = formData.get(playerToGet + '_race');
+        let playerToGet_Armee = formData.get(playerToGet + '_Armee');
 
-        infosJoueurs[playerToGet_name] = playerToGet_race;
+        infosJoueurs[playerToGet_name] = playerToGet_Armee;
     }
     console.log(infosJoueurs[caca]);
 };
