@@ -94,18 +94,14 @@ function playersForm_submit() {
     const form = document.getElementById('playersForm');
     const formData = new FormData(form);
 
-    let playerList = document.getElementById("PlayerList");
-    console.log(`compteur joueur ${compteur_joueurs}`);
-
-    let compteur_playerForm = 1;
-    for(compteur_playerForm; compteur_playerForm <= compteur_joueurs; compteur_playerForm++){
+    for(let compteur_playerForm = 1; compteur_playerForm <= compteur_joueurs; compteur_playerForm++){
         let playerToGet = 'player' + compteur_playerForm; //elementToGet = `player${compteur_playerForm}_name`
         let playerToGet_name = formData.get(playerToGet + '_name');
-        let playerToGet_Armee = formData.get(playerToGet + '_Armee');
+        let playerToGet_Armee = formData.get(playerToGet + '_armee');
 
         infosJoueurs[playerToGet_name] = playerToGet_Armee;
     }
-    console.log(infosJoueurs[caca]);
+    console.log(infosJoueurs[player1_name]);
 };
 
 //AFFICHER LISTE DES JOUEUR·EUSE·S
