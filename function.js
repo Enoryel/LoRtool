@@ -1,5 +1,7 @@
+/**********************SCRIPTS LORTOOL**********************/
 var compteur_joueurs = 2;
 var compteur_joueurs_old = null;
+var infosJoueurs = [];
 
 //GÉNÉRATIONS DES SLOTS JOUEURS
 function generateNewPlayer(ID) {
@@ -8,7 +10,7 @@ function generateNewPlayer(ID) {
     var newPlayerID = "player" + ID;
     var newPlayerName = newPlayerID + "_name";
     var newPlayerNameValue = "Joueur " + ID;
-    var newPlayerRace = newPlayerID + "_race";
+    var newPlayerArmee = newPlayerID + "_armee";
 
     // console.log(copiedPlayer);
     // console.log("Nouveau joueur = " + newPlayerID);     
@@ -20,7 +22,7 @@ function generateNewPlayer(ID) {
     
     clone.firstElementChild.name = newPlayerName;
     clone.firstElementChild.value = newPlayerNameValue;
-    clone.lastElementChild.id = newPlayerRace;
+    clone.lastElementChild.id = newPlayerArmee;
 
     elem.after(clone);
     console.log("Joueur " + newPlayerID + " généré");
@@ -89,17 +91,47 @@ function playersForm_submit() {
     document.getElementById("page1").style.display="none";
     document.getElementById("page2").style.display="block";
 
-    const form = document.getElementById('playersForm');
-    const formData = new FormData(form);
+    var form = document.getElementById('playersForm');
+    var formData = new FormData(form);
+    var PlayerList = document.getElementById('PlayerList');
 
-    let playerList = document.getElementById("PlayerList");
-    
-    for (var [name, value] of formData) {
-        PlayerList.innerHTML += (name + ': ' + value + '<br />'); //PREND EN COMPTE LES JOUEURS INVISIBLES
+    //SOLUTION 1
+    for(let compteur_playerForm = 1; compteur_playerForm <= compteur_joueurs; compteur_playerForm++){
+        let playerToGet = 'player' + compteur_playerForm; //elementToGet = `player${compteur_playerForm}_name`
+        let playerToGet_name = formData.get(playerToGet + '_name');
+        let playerToGet_Armee = formData.get(playerToGet + '_armee');
+
+        infosJoueurs[playerToGet_name] = playerToGet_Armee;
+        console.log(playerToGet_name + ' = ' + infosJoueurs[playerToGet_name]);
     }
+
+    // SOLUTION 2
+    // let armee_jouee_bool = false;
+    // let nom_joueur_temp;
+    // let armee_jouee_temp; 
+    // for (var [name, value] of formData) {    
+    //     if (!armee_jouee_bool){
+    //         nom_joueur_temp = `${value}`;
+    //         armee_jouee_bool = true;
+    //     }
+    //     else if (armee_jouee_bool){
+    //         armee_jouee_temp = `${value}`;
+    //         infosJoueurs[nom_joueur_temp] = armee_jouee_temp;
+    //         armee_jouee_bool = false;
+
+    //         console.log(nom_joueur_temp + ' = ' + infosJoueurs[nom_joueur_temp]);
+    //     }
+    // }
+
+    // for (const pair of formData.entries()) {
+    //     console.log(`${pair[0]}, ${pair[1]}`);
+    // }
+
 };
+
+
 
 //AFFICHER LISTE DES JOUEUR·EUSE·S
 function displayPlayers() {
-    document.getElementById("PlayerList").style.display = "block";
-}
+    PlayerList.style.display = "block";
+};
