@@ -95,18 +95,41 @@ function playersForm_submit() {
     var formData = new FormData(form);
     var PlayerList = document.getElementById('PlayerList');
 
-    // for(let compteur_playerForm = 1; compteur_playerForm <= compteur_joueurs; compteur_playerForm++){
-    //     let playerToGet = 'player' + compteur_playerForm; //elementToGet = `player${compteur_playerForm}_name`
-    //     let playerToGet_name = formData.get(playerToGet + '_name');
-    //     let playerToGet_Armee = formData.get(playerToGet + '_armee');
+    //SOLUTION 1
+    for(let compteur_playerForm = 1; compteur_playerForm <= compteur_joueurs; compteur_playerForm++){
+        let playerToGet = 'player' + compteur_playerForm; //elementToGet = `player${compteur_playerForm}_name`
+        let playerToGet_name = formData.get(playerToGet + '_name');
+        let playerToGet_Armee = formData.get(playerToGet + '_armee');
 
-    //     infosJoueurs[playerToGet_name] = playerToGet_Armee;
+        infosJoueurs[playerToGet_name] = playerToGet_Armee;
+        console.log(playerToGet_name + ' = ' + infosJoueurs[playerToGet_name]);
+    }
+
+    // SOLUTION 2
+    // let armee_jouee_bool = false;
+    // let nom_joueur_temp;
+    // let armee_jouee_temp; 
+    // for (var [name, value] of formData) {    
+    //     if (!armee_jouee_bool){
+    //         nom_joueur_temp = `${value}`;
+    //         armee_jouee_bool = true;
+    //     }
+    //     else if (armee_jouee_bool){
+    //         armee_jouee_temp = `${value}`;
+    //         infosJoueurs[nom_joueur_temp] = armee_jouee_temp;
+    //         armee_jouee_bool = false;
+
+    //         console.log(nom_joueur_temp + ' = ' + infosJoueurs[nom_joueur_temp]);
+    //     }
     // }
 
-    for (var [name, value] of formData) {
-        PlayerList.textContent += `${value}`;
-    };
-}
+    // for (const pair of formData.entries()) {
+    //     console.log(`${pair[0]}, ${pair[1]}`);
+    // }
+
+};
+
+
 
 //AFFICHER LISTE DES JOUEUR·EUSE·S
 function displayPlayers() {

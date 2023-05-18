@@ -84,7 +84,6 @@
     <div id="page2" style="display:none">
 
       <input type="button" onclick="displayPlayers()" value="Afficher joueurs">
-
       <div id="PlayerList" style="display:none">
       </div>
 
