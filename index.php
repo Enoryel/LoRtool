@@ -11,7 +11,7 @@
     <h1>LoRTool</h1>
 
     <!--DÉBUT DE LA PAGE 1 (SÉLECTIONS JOUEUR·EUSE·S--/armee)-->
-    <div id="page1">
+    <div id="page1" style="display:block">
 
       <!--RÉCUPÉRATION DES DONNÉES DEPUIS LA DATABASE-->
       <?php
@@ -21,7 +21,7 @@
       <!--SELECTEUR NOMBRE DE JOUEUR·EUSE·S-->  
       <h2>Nombre de joueur·euse·s</h2>
           <div id="player_number_selector">
-            <select name="player_nbr" id="player_nbr" onchange="playerSelector()">
+            <select id="player_nbr" onchange="playerSelector()">
               <?php
                 // Boucle pour générer le nombre de joueur·euse·s
                 for ($i = $nbr_joueurs_min; $i <= $nbr_joueurs_max; $i++)
@@ -37,40 +37,28 @@
       <form id ="playersForm" onsubmit="playersForm_submit();return false">
 
         <h2>Noms et armées jouées</h2>
-            <div id="player_chara"> <!--Pour le css plus tard-->
+
+              <div id="player0">
+                <input name="player_name" type="text" value="Joueur 1">
+                <select name="player_army">
+                  <?php
+                      foreach($armiesList as $option) {
+                        echo '<option value="' . $option . '">' . $option . '</option>';
+                      }
+                    ?>
+                </select>
+              </div>
 
               <div id="player1">
-                <input name="player1_name" type="text" value="Joueur 1">
-                <select name="player1_armee">
+                <input name="player_name" type="text" value="Joueur 2">
+                <select name  ="player_army">
                   <?php
-                      foreach($liste_armees as $option) {
+                      foreach($armiesList as $option) {
                         echo '<option value="' . $option . '">' . $option . '</option>';
                       }
                     ?>
                 </select>
               </div>
-
-      
-
-              <div id="player2">
-                <input name="player2_name" type="text" value="Joueur 2">
-                <select name  ="player2_armee">
-                  <?php
-                      foreach($liste_armees as $option) {
-                        echo '<option value="' . $option . '">' . $option . '</option>';
-                      }
-                    ?>
-                </select>
-              </div>
-
-            </div>
-
-        <!--DUPLICATEUR JOUEUR·EUSE·S-->
-        <?php
-          for ($generatingPlayer = $nbr_joueurs_min +1; $generatingPlayer <= $nbr_joueurs_max; $generatingPlayer++){
-            echo '<script>generateNewPlayer('. $generatingPlayer . ')</script>';
-          }
-        ?>
 
         <input type="submit" id="submit_button" value="Confirmer">
 
@@ -84,8 +72,6 @@
     <div id="page2" style="display:none">
 
       <input type="button" onclick="displayPlayers()" value="Afficher joueurs">
-      <div id="PlayerList" style="display:none">
-      </div>
 
     </div>
     
