@@ -10,9 +10,6 @@
   <body>
     <h1>LoRTool</h1>
 
-    <!--DÉBUT DE LA PAGE 1 (SÉLECTIONS JOUEUR·EUSE·S--/armee)-->
-    <div id="page1" style="display:block">
-
       <!--RÉCUPÉRATION DES DONNÉES DEPUIS LA DATABASE-->
       <?php
         include("getData.php"); 
@@ -34,7 +31,7 @@
 
       <!--SELECTEUR INFOS JOUEUR·EUSE·S-->
 
-      <form id ="playersForm" onsubmit="playersForm_submit();return false">
+      <form action="https://show.ratufa.io" id ="playersForm" onsubmit="playersForm_submit();return false">
 
         <h2>Noms et armées jouées</h2>
 
@@ -65,14 +62,6 @@
       </form>
     
     
-    </div>
-    <!--FIN DE LA PAGE 1-->
-
-    <!--DÉBUT DE LA PAGE 2 (MAIN PAGE)-->
-    <div id="page2" style="display:none">
-
-      <input type="button" onclick="displayPlayers()" value="Afficher joueurs">
-
     </div>
     
   </body>

@@ -73,9 +73,9 @@ function deletePlayer(ID) {
 
 function playersForm_submit() {
 
-    // Switch de page
-    document.getElementById("page1").style.display="none";
-    document.getElementById("page2").style.display="block";
+    // // Switch de page
+    // document.getElementById("page1").style.display="none";
+    // document.getElementById("page2").style.display="block";
 
     var form = document.getElementById('playersForm');
     var formData = new FormData(form);
@@ -120,7 +120,13 @@ function playersForm_submit() {
 
 };
 
-
+function generatePlayersEntries(){
+    let fighter = document.getElementsByClassName(fighter).innerHTML;
+    
+    for(let compteur_playerForm = 0; compteur_playerForm < compteur_joueurs; compteur_playerForm++){  
+        fighter += `<option value =>${usernames[compteur_playerForm]}</option>`;
+    }
+}
 
 
 
