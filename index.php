@@ -5,6 +5,7 @@
     <title>LoRTool</title>
 
     <script src="function.js"></script>
+    <link rel="stylesheet" href="stylesheet.css">
   </head>
 
   <body>

@@ -80,10 +80,6 @@ function deletePlayer(ID) {
 
 function playersForm_submit() {
 
-    // // Switch de page
-    // document.getElementById("page1").style.display="none";
-    // document.getElementById("page2").style.display="block";
-
     var form = document.getElementById('playersForm');
     var formData = new FormData(form);
 
