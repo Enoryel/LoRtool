@@ -1,3 +1,25 @@
-ARMEE,NOM,COUT,RACE,TYPE,MOUVEMENT,COMBAT,TIR,FORCE,DEFENSE,ATTAQUE,RÉSISTANCE,BRAVOURE,PUISSANCE
-Gondor,Aragorn,999,Humain,Infanterie,99,99,99,99,99,99,99,99,99
-Haradrim,Bande de pillards,25,Humain,Cavalerie,6,5,4,3,2,1,1,2,
+ARMEE;NOM;COUT;RACE;TYPE;MOUVEMENT;COMBAT;TIR;FORCE;DEFENSE;ATTAQUE;RÉSISTANCE;BRAVOURE;PUISSANCE
+Les Royaumes Déchus;Bande de guerre;25;Humain;Infanterie;6;3;4;3;4;8;1;3;
+Les Royaumes Déchus;Bande de pillards;25;Humain;Cavalerie;6;5;4;3;2;1;1;2;
+Les Royaumes Déchus;Bande de gardes serpents;30;Humain;Infanterie;6;4;;3;4;8;1;4;
+Les Royaumes Déchus;Bande de cavaliers serpents;30;Humain;Cavalerie;10;4;4;3;4;2;2;4;
+Les Royaumes Déchus;Bande de corsaires;25;Humain;Infanterie;6;4;4;3;3;8;1;3;
+Les Royaumes Déchus;Bande de mercenaires de Khand;25;Humain;Infanterie;6;3;4;4;4;8;1;3;
+Les Royaumes Déchus;Pillards de Khand;25;Humain;Cavalerie;10;3;4;4;4;2;2;3;
+Les Royaumes Déchus;Cohorte d’orientaux;30;Humain;Infanterie;6;4;4;3;5;8;1;3;
+Les Royaumes Déchus;Cohorte d’archers orientaux;35;Humain;Infanterie;6;4;4;3;5;8;1;3;
+Les Royaumes Déchus;Cohorte de cataphractaires orientaux;35;Humain;Cavalerie;10;4;4;4;5;2;2;3;
+Les Royaumes Déchus;Bande de gardiens;35;Humain;Infanterie;6;4;3;3;4;8;1;4;
+Les Royaumes Déchus;Bande de demi-trolls;95;Humain;Infanterie;6;5;;5;5;8;2;2;
+Les Royaumes Déchus;Bande de Mahûd;30;Humain;Infanterie;6;4;;4;3;8;1;2;
+Les Royaumes Déchus;Bande de pillards Mahûd;30;Humain;Cavalerie;10;4;3;4;3;2;2;2;
+Les Royaumes Déchus;Arbalétriers corsaires;25;Humain;Infanterie;6;4;4;3;3;8;1;3;
+Les Royaumes Déchus;Régiment de númenóréens noirs;35;Humain;Infanterie;6;4;4;3;5;8;1;3;
+Les Royaumes Déchus;Régiment de chevaliers de morgul;35;Humain;Cavalerie;10;4;4;3;6;2;2;3;
+Les Royaumes Déchus;Aurige de Khand;100;Humain;Monstre;10;4;4;6;5;4;2;4;
+Les Royaumes Déchus;Mûmak du Harad;250;Mûmak;Monstre;;4;;9;8;*;2;4;
+Les Royaumes Déchus;La garde d’Abrakhân;100 + 30;Humain;Infanterie;6;3;4;3;4;8;1;3;
+Les Royaumes Déchus;Suladân, le Seigneur Serpent;150;Humain;Héros;;6;;;;;3;5;3
+Les Royaumes Déchus;Dalamyr, Amiral d’Umbar;100;Humain;Héros;;5;;;;;3;5;2
+Les Royaumes Déchus;Amdûr, le Seigneur des Lames;165;Humain;Héros;;7;4;;;;3;5;3
+Les Royaumes Déchus;La Reine Berúthiel;100;Humain;Héros;;3;;;;;2;4;2

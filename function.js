@@ -38,17 +38,24 @@ function addPlayer() {
 
 function generatePlayer(ID) {
     //Définition des variables de base
-    let copiedPlayer = "player0";
+    let copiedPlayer = "player1";
     let newPlayerID = "player" + ID;
-    let newPlayerValue = "Joueur " + ID;   
+    let newPlayerValue = "Joueur " + ID;
+    let newPlayerPseudo = "player_name" + ID;
+    let newPlayerArmy = "player_army" + ID;
 
     let elem = document.getElementById(copiedPlayer);
     let clone = elem.cloneNode(true);
     clone.id = newPlayerID;
 
+    clone.firstElementChild.name = newPlayerPseudo;
     clone.firstElementChild.value = newPlayerValue;
+    clone.lastElementChild.name = newPlayerArmy;
 
-    document.getElementById('player_chara').appendChild(clone);
+    // document.getElementById('playersForm').appendChild(clone);
+    parentNode = document.getElementById('playersForm');
+    referenceNode = document.getElementById('submit_button');
+    parentNode.insertBefore(clone, referenceNode);
     console.log(newPlayerID + " généré");
 };
     
