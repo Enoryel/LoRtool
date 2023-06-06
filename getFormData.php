@@ -5,5 +5,6 @@
     $player_armies[$compteur_joueurs] = $_POST['player_army' . $compteur_joueurs];
 
     echo $player_name[$compteur_joueurs] . ' = ' . $player_armies[$compteur_joueurs] . '<br />';
+    
     }
 ?>
