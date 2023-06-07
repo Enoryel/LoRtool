@@ -5,26 +5,33 @@
     <title>LoRTool</title>
 
     <script src="function.js"></script>
+    <link rel="stylesheet" href="fontes\fontes.css">
+    <link rel="stylesheet" href="stylesheet.css">
   </head>
 
-  <body>
-    <h1>LoRTool</h1>
-
     <?php
-        include("getFormData.php"); 
+      include("header.php");
+      include("getFormData.php");
+
+        switch($player_nbr){
+          case 2:
+            break;
+          case 3:
+            break;
+          case 4:
+            break;
+        }
     ?>
 
-      <input type="button" onclick="displayPlayers()" value="debug players">
+    
 
-      <!-- <select class='fighter' id='fighter1'>
-        <?php
-          echo '<script>generatePlayersEntries()</script>'
-        ?>
-
-      <select class='fighter' id='fighter2'>
-        <?php
-          echo '<script>generatePlayersEntries()</script>'
-      ?> -->
+    <select name="player_army1">
+      <?php
+      foreach($players_datas as $key => $value) {
+        echo '<option value="' . $key . '">' . $key . '</option>';
+      }
+      ?>
+    </select>
 
   </body>
 </html>
