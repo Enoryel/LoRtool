@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'tricksterregular';
-    src: url('trickster-reg-webfont.woff2') format('woff2'),
-         url('fontes/trickster-reg-webfont.woff') format('woff');
+    src: url(../fontes/trickster-reg-webfont.woff2) format('woff2'),
+         url(../fontes/fontes/trickster-reg-webfont.woff) format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -9,8 +9,8 @@
 
 @font-face {
     font-family: 'ft88gothique';
-    src: url('ft88-gothique-webfont.woff2') format('woff2'),
-         url('ft88-gothique-webfont.woff') format('woff');
+    src: url(../fontes/ft88-gothique-webfont.woff2) format('woff2'),
+         url(../fontes/ft88-gothique-webfont.woff) format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -18,8 +18,8 @@
 
 @font-face {
     font-family: 'BBBBaskervvol-Base';
-    src: url('BBBBaskervvol-Base.woff2') format('woff2'),
-         url('BBBBaskervvol-Base.woff') format('woff');
+    src: url(../fontes/BBBBaskervvol-Base.woff2) format('woff2'),
+         url(../fontes/BBBBaskervvol-Base.woff) format('woff');
     font-weight: normal;
     font-style: normal;
 
