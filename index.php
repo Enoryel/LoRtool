@@ -5,15 +5,19 @@
     <title>LoRTool</title>
 
     <script src="function.js"></script>
+    <link rel="stylesheet" href="fontes\fontes.css">
     <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
+
   </head>
 
   <body>
-    <h1>LoRTool</h1>
-
       <!--RÉCUPÉRATION DES DONNÉES DEPUIS LA DATABASE-->
       <?php
-        include("getData.php"); 
+        include("meta.php");
+        include("header.php");
+        
+        include("getData.php");
       ?>
 
       <!--SELECTEUR NOMBRE DE JOUEUR·EUSE·S-->
@@ -23,12 +27,12 @@
 
       <h2>Nombre de joueur·euse·s</h2>
           <div id="player_number_selector">
-            <select name="player_nbr" id="player_nbr" onchange="playerSelector()">
+            <select name="player_nbr" id="player_nbr" onchange="playerNbrSelector()">
               <?php
                 // Boucle pour générer le nombre de joueur·euse·s
                 for ($i = $nbr_joueurs_min; $i <= $nbr_joueurs_max; $i++)
                 {
-                  echo "<option value='" . $i . "'>" . $i . " joueurs</option>";
+                  echo "<option value='" . $i . "'>" . $i . " joueur·euse·s</option>";
                 }
                 ?>
             </select>

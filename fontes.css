@@ -1,0 +1,247 @@
+@font-face {
+    font-family: 'tricksterregular';
+    src: url('trickster-reg-webfont.woff2') format('woff2'),
+         url('fontes/trickster-reg-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'ft88gothique';
+    src: url('ft88-gothique-webfont.woff2') format('woff2'),
+         url('ft88-gothique-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BBBBaskervvol-Base';
+    src: url('BBBBaskervvol-Base.woff2') format('woff2'),
+         url('BBBBaskervvol-Base.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/********/
+.roberte, #roberte:hover {
+    font-family: 'roberte';
+}
+@font-face {
+    font-family: 'roberte';
+    src: url(../fontes/Roberte-Regular.woff2) format('woff2'),
+         url(../fontes/Roberte-Regular.woff) format('woff');
+    font-weight: normal;
+}
+
+.amiamie-rounded, #amiamie-rounded:hover {
+    font-family: 'amiamie-rounded';
+}
+@font-face {
+    font-family: 'amiamie-rounded';
+    src: url(../fontes/Amiamie-RegularRound.woff2) format('woff2'),
+         url(../fontes/Amiamie-RegularRound.woff) format('woff');
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'amiamie-rounded';
+    src: url(../fontes/Amiamie-ItalicRound.woff2) format('woff2'),
+         url(../fontes/Amiamie-ItalicRound.woff) format('woff');
+    font-style: italic;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'amiamie-rounded';
+    src: url(../fontes/Amiamie-BlackRound.woff2) format('woff2'),
+         url(../fontes/Amiamie-BlackRound.woff) format('woff');
+    font-style: normal;
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'amiamie-rounded';
+    src: url(../fontes/Amiamie-BlackItalicRound.woff2) format('woff2'),
+         url(../fontes/Amiamie-BlackItalicRound.woff) format('woff');
+    font-style: italic;
+    font-weight: bold;
+}
+
+.amiamie, #amiamie:hover {
+    font-family: 'amiamie';
+}
+@font-face {
+    font-family: 'amiamie';
+    src: url(../fontes/Amiamie-Regular.woff2) format('woff2'),
+         url(../fontes/Amiamie-Regular.woff) format('woff');
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'amiamie';
+    src: url(../fontes/Amiamie-Italic.woff2) format('woff2'),
+         url(../fontes/Amiamie-Italic.woff) format('woff');
+    font-style: italic;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'amiamie';
+    src: url(../fontes/Amiamie-Black.woff2) format('woff2'),
+         url(../fontes/Amiamie-Black.woff) format('woff');
+    font-style: normal;
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'amiamie';
+    src: url(../fontes/Amiamie-BlackItalic.woff2) format('woff2'),
+         url(../fontes/Amiamie-BlackItalic.woff) format('woff');
+    font-style: italic;
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'amiamie';
+    src: url(../fontes/Amiamie-Light.woff2) format('woff2'),
+         url(../fontes/Amiamie-Light.woff) format('woff');
+    font-style: normal;
+    font-weight: 100;
+}
+@font-face {
+    font-family: 'amiamie';
+    src: url(../fontes/Amiamie-LightItalic.woff2) format('woff2'),
+         url(../fontes/Amiamie-LightItalic.woff) format('woff');
+    font-style: italic;
+    font-weight: 100;
+}
+
+.ductus, #ductus:hover {
+    font-family: 'ductus-regular';
+}
+@font-face {
+    font-family: 'ductus-regular';
+    src: url(../fontes/DuctusRegular.woff2) format('woff2'),
+         url(../fontes/DuctusRegular.woff) format('woff');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ductus-calligraphic';
+    src: url(../fontes/DuctusCalligraphic.woff2) format('woff2'),
+         url(../fontes/DuctusCalligraphic.woff) format('woff');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ductus-geometric';
+    src: url(../fontes/DuctusGeometric.woff2) format('woff2'),
+         url(../fontes/DuctusGeometric.woff) format('woff');
+    font-style: normal;
+}
+.ductus-mono, #ductus-mono:hover {
+    font-family: 'ductus-mono-regular';
+}
+@font-face {
+    font-family: 'ductus-mono-regular';
+    src: url(../fontes/DuctusMonoRegular.woff2) format('woff2'),
+         url(../fontes/DuctusMonoRegular.woff) format('woff');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ductus-mono-calligraphic';
+    src: url(../fontes/DuctusMonoCalligraphic.woff2) format('woff2'),
+         url(../fontes/DuctusMonoCalligraphic.woff) format('woff');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ductus-mono-geometric';
+    src: url(../fontes/DuctusMonoGeometric.woff2) format('woff2'),
+         url(../fontes/DuctusMonoGeometric.woff) format('woff');
+    font-style: normal;
+}
+
+.adelphe, #adelphe:hover {
+    font-family: 'adelphe';
+}
+@font-face {
+    font-family: 'adelphe';
+    src: url(../fontes/AdelpheVF.woff2) format('woff2'),
+         url(../fontes/AdelpheVF.woff) format('woff');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'adelphe';
+    src: url('../fontes/AdelpheitaliqueVF.woff2') format('woff2'),
+         url('../fontes/AdelpheitaliqueVF.woff') format('woff');
+    font-style: italic;
+}
+
+.baskervvol, #baskervvol:hover {
+    font-family: 'baskervvol';
+}
+@font-face {
+    font-family: 'baskervvol';
+    src: url('BBBBaskervvol-Fondue.woff2') format('woff2');
+    src: url('BBBBaskervvol-Fondue.woff') format('woff');
+}
+
+.cirrus, #cirrus:hover {
+    font-family: 'cirrus';
+}
+@font-face {
+    font-family: 'cirrus';
+    src: url(../fontes/CirrusCumulus.otf) format('opentype');
+}
+
+.combine, #combine:hover {
+    font-family: 'combine';
+}
+@font-face {
+    font-family: 'combine';
+    src: url(../fontes/Combine.otf) format('opentype');
+}
+
+.dindong, #dindong:hover {
+    font-family: 'dindong';
+}
+@font-face {
+    font-family: 'dindong';
+    src: url(../fontes/DINdong.otf) format('opentype');
+}
+
+.homoneta, #homoneta:hover {
+    font-family: 'homoneta';
+}
+@font-face {
+    font-family: 'homoneta';
+    src: url(../fontes/Homoneta-Regular.woff) format('woff');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'homoneta';
+    src: url(../fontes/Homoneta-Italic.woff) format('woff');
+    font-style: italic;
+
+}
+
+.josa, #josa:hover {
+    font-family: 'josa';
+}
+@font-face {
+    font-family: 'josa';
+    src: url(../fontes/Josafronde-Regular.otf) format('opentype');
+}
+
+.LS-VG5000, #ls-vg5000:hover {
+    font-family: 'LS-VG5000';
+}
+@font-face {
+    font-family: 'LS-VG5000';
+    src: url(../fontes/ls-vg5000trial-regular-webfont.woff) format('opentype');
+}
+
+
+.picnic, #picnic:hover {
+    font-family: 'PicNic';
+}
+@font-face {
+    font-family: 'PicNic';
+    src: url(../fontes/PicNic-Regular.woff) format('woff');
+}
