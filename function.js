@@ -138,4 +138,9 @@ function displayPlayers() {
     for(let compteur_playerForm = 0; compteur_playerForm < compteur_joueurs; compteur_playerForm++){  
         console.log(usernames[compteur_playerForm]+ ' = ' + armies[compteur_playerForm]);
     }
-};
+}
+
+function playerIsSelected(player) {
+    let selectedPlayer = document.getElementById(player);
+    selectedPlayer.style.backgroundColor = "red";
+}

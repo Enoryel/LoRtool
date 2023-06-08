@@ -1,38 +1,21 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>LoRTool</title>
+  <?php
+        include("meta.php");
 
-    <script src="function.js"></script>
-    <link rel="stylesheet" href="fontes\fontes.css">
-    <link rel="stylesheet" href="stylesheet.css">
-  </head>
+        include("header.php");
+        include("getData.php");
 
-  <body>
-    <?php
-      include("header.php");
-      include("getFormData.php");
+        include("getFormData.php");
+  ?>
 
-        switch($player_nbr){
-          case 2:
-            break;
-          case 3:
-            break;
-          case 4:
-            break;
-        }
-    ?>
-
-    
-
-    <select name="player_army1">
-      <?php
-      foreach($players_datas as $key => $value) {
-        echo '<option value="' . $key . '">' . $key . '</option>';
-      }
-      ?>
-    </select>
+<!-- <button class='player_selector' id=test onclick='playerIsSelected("test")'>test</button> -->
+  
+  <?php
+    foreach($players_datas as $key => $value){
+      echo "<button class='player_selector' id={$key} onclick='playerIsSelected('{$key}')'>'{$key}'</button>";
+    }
+  ?>
 
   </body>
 </html>
