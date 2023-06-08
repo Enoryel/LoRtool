@@ -17,20 +17,20 @@
       $nbr_joueurs_min = $row[0];
 
       //Récupération nombre de joueurs max
-      $requete = "SELECT valeur FROM setup WHERE option = 'nbr_joueurs_max'";
+      $requete = "SELECT DISTINCT valeur FROM setup WHERE option = 'nbr_joueurs_max'";
       $resultat = mysqli_query($conn, $requete);
       $row = mysqli_fetch_row($resultat);
       $nbr_joueurs_max = $row[0];
 
       //Récupération races
-      $requete = "SELECT * FROM races_list";
+      $requete = "SELECT DISTINCT ARMEE FROM units_data";
       $resultat = mysqli_query($conn, $requete);
 
-      $liste_armees = [];
+      $armiesList = [];
       $compteur = 0;
       while ($donnees = mysqli_fetch_array($resultat)) {
-        $liste_armees[$compteur] = $donnees["NOM"];
-        $compteur ++;
+        $armiesList[$compteur] = $donnees["ARMEE"];
+        $compteur ++; 
       }
 
       mysqli_close($conn);

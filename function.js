@@ -1,35 +1,12 @@
 /**********************SCRIPTS LORTOOL**********************/
 var compteur_joueurs = 2;
 var compteur_joueurs_old = null;
-var infosJoueurs = [];
-
-//GÉNÉRATIONS DES SLOTS JOUEURS
-function generateNewPlayer(ID) {
-    //Définition des variables de base
-    var copiedPlayer = "player" + (ID - 1);
-    var newPlayerID = "player" + ID;
-    var newPlayerName = newPlayerID + "_name";
-    var newPlayerNameValue = "Joueur " + ID;
-    var newPlayerArmee = newPlayerID + "_armee";
-
-    // console.log(copiedPlayer);
-    // console.log("Nouveau joueur = " + newPlayerID);     
-
-    var elem = document.getElementById(copiedPlayer);
-    var clone = elem.cloneNode(true);
-    clone.id = newPlayerID;
-    clone.style.display ="none";
-    
-    clone.firstElementChild.name = newPlayerName;
-    clone.firstElementChild.value = newPlayerNameValue;
-    clone.lastElementChild.id = newPlayerArmee;
-
-    elem.after(clone);
-    console.log("Joueur " + newPlayerID + " généré");
-};
+var usernames;
+var armies;
+var selectedPlayerNbr = 0;
 
 //MODIFICATION EN FONCTION DU SELECTEUR DE NOMBRE DE JOUEURS
-function playerSelector() {
+function playerNbrSelector() {
     compteur_joueurs_old = compteur_joueurs;
     compteur_joueurs = document.getElementById('player_nbr').value;
 
@@ -56,14 +33,31 @@ function addPlayer() {
     while (compteur_joueurs_old < compteur_joueurs){
         compteur_joueurs_old++;
         console.log("J'ajoute le joueur " + compteur_joueurs_old);
-        HidePlayer();
+        generatePlayer(compteur_joueurs_old);
     };
 }
 
-function HidePlayer(){
-    playerToHideID = "player" + compteur_joueurs_old;
-    playerToHide = document.getElementById(playerToHideID);
-    playerToHide.style.display = "block";
+function generatePlayer(ID) {
+    //Définition des variables de base
+    let copiedPlayer = "player1";
+    let newPlayerID = "player" + ID;
+    let newPlayerValue = "Joueur " + ID;
+    let newPlayerPseudo = "player_name" + ID;
+    let newPlayerArmy = "player_army" + ID;
+
+    let elem = document.getElementById(copiedPlayer);
+    let clone = elem.cloneNode(true);
+    clone.id = newPlayerID;
+
+    clone.firstElementChild.name = newPlayerPseudo;
+    clone.firstElementChild.value = newPlayerValue;
+    clone.lastElementChild.name = newPlayerArmy;
+
+    // document.getElementById('playersForm').appendChild(clone);
+    parentNode = document.getElementById('playersForm');
+    referenceNode = document.getElementById('submit_button');
+    parentNode.insertBefore(clone, referenceNode);
+    console.log(newPlayerID + " généré");
 };
     
 
@@ -71,39 +65,34 @@ function HidePlayer(){
 
 function removePlayer() {
     while (compteur_joueurs_old > compteur_joueurs){  
-        hidePlayer();
+        deletePlayer(compteur_joueurs_old);
         console.log("Je supprime le joueur " + compteur_joueurs_old);
         compteur_joueurs_old--;
     };
 }
 
-function hidePlayer() {
-    playerToHideID = "player" + compteur_joueurs_old;
-    playerToHide = document.getElementById(playerToHideID);
-    playerToHide.style.display = "none";
+function deletePlayer(ID) {
+    playerToDeleteID = "player" + ID;
+    playerToDelete = document.getElementById(playerToDeleteID);
+    playerToDelete.remove();
 };
 
 //VALIDATION LISTE DES JOUEUR·EUSE·S
 
 function playersForm_submit() {
 
-    // Switch de page
-    document.getElementById("page1").style.display="none";
-    document.getElementById("page2").style.display="block";
-
     var form = document.getElementById('playersForm');
     var formData = new FormData(form);
-    var PlayerList = document.getElementById('PlayerList');
 
-    //SOLUTION 1
-    for(let compteur_playerForm = 1; compteur_playerForm <= compteur_joueurs; compteur_playerForm++){
-        let playerToGet = 'player' + compteur_playerForm; //elementToGet = `player${compteur_playerForm}_name`
-        let playerToGet_name = formData.get(playerToGet + '_name');
-        let playerToGet_Armee = formData.get(playerToGet + '_armee');
+    // //SOLUTION 1
+    // for(let compteur_playerForm = 1; compteur_playerForm <= compteur_joueurs; compteur_playerForm++){
+    //     let playerToGet = 'player' + compteur_playerForm; //elementToGet = `player${compteur_playerForm}_name`
+    //     let playerToGet_name = formData.get(playerToGet + '_name');
+    //     let playerToGet_Armee = formData.get(playerToGet + '_armee');
 
-        infosJoueurs[playerToGet_name] = playerToGet_Armee;
-        console.log(playerToGet_name + ' = ' + infosJoueurs[playerToGet_name]);
-    }
+    //     infosJoueurs[playerToGet_name] = playerToGet_Armee;
+    //     console.log(playerToGet_name + ' = ' + infosJoueurs[playerToGet_name]);
+    // }
 
     // SOLUTION 2
     // let armee_jouee_bool = false;
@@ -127,11 +116,59 @@ function playersForm_submit() {
     //     console.log(`${pair[0]}, ${pair[1]}`);
     // }
 
+    // SOLUTION 3
+
+    usernames = formData.getAll('player_name');
+    armies = formData.getAll('player_army');
+    
+
 };
+
+function generatePlayersEntries(){
+    let fighter = document.getElementsByClassName(fighter).innerHTML;
+    
+    for(let compteur_playerForm = 0; compteur_playerForm < compteur_joueurs; compteur_playerForm++){  
+        fighter += `<option value =>${usernames[compteur_playerForm]}</option>`;
+    }
+}
 
 
 
 //AFFICHER LISTE DES JOUEUR·EUSE·S
 function displayPlayers() {
-    PlayerList.style.display = "block";
-};
+    for(let compteur_playerForm = 0; compteur_playerForm < compteur_joueurs; compteur_playerForm++){  
+        console.log(usernames[compteur_playerForm]+ ' = ' + armies[compteur_playerForm]);
+    }
+}
+
+function playerIsSelected(playerID) {
+    let selectedPlayer;
+    switch (selectedPlayerNbr) {
+        case 0:
+            selectedPlayer = document.getElementById(playerID);
+            selectedPlayer.style.backgroundColor = "red";
+            selectedPlayerNbr ++;
+            console.log(selectedPlayerNbr);
+            break;
+        case 1:
+            selectedPlayer = document.getElementById(playerID);
+            selectedPlayer.style.backgroundColor = "red";
+            selectedPlayerNbr ++;
+            console.log(selectedPlayerNbr);
+            break;
+    }
+
+
+
+
+    if (selectedPlayerNbr < 2) {
+        let selectedPlayer = document.getElementById(playerID);
+        selectedPlayer.style.backgroundColor = "red";
+        selectedPlayerNbr ++;
+        console.log(selectedPlayerNbr);
+    }
+    else {
+        console.log(selectedPlayerNbr);
+    }
+    
+}
