@@ -13,7 +13,8 @@
   
   <?php
     foreach($players_datas as $key => $value){
-      echo "<button class='player_selector' id={$key} onclick='playerIsSelected('{$key}')'>'{$key}'</button>";
+      // echo "<button class='player_selector' id='{$key}' onclick='playerIsSelected(\"{$key}\")'>{$key}</button>";
+      echo "<button class='player_selector' id='{$key}' onclick='playerIsSelected(\"{$key}\")'>{$key}</button>";
     }
   ?>
 
