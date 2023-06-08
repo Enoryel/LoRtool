@@ -3,6 +3,7 @@ var compteur_joueurs = 2;
 var compteur_joueurs_old = null;
 var usernames;
 var armies;
+var selectedPlayerNbr = 0;
 
 //MODIFICATION EN FONCTION DU SELECTEUR DE NOMBRE DE JOUEURS
 function playerNbrSelector() {
@@ -140,7 +141,34 @@ function displayPlayers() {
     }
 }
 
-function playerIsSelected(player) {
-    let selectedPlayer = document.getElementById(player);
-    selectedPlayer.style.backgroundColor = "red";
+function playerIsSelected(playerID) {
+    let selectedPlayer;
+    switch (selectedPlayerNbr) {
+        case 0:
+            selectedPlayer = document.getElementById(playerID);
+            selectedPlayer.style.backgroundColor = "red";
+            selectedPlayerNbr ++;
+            console.log(selectedPlayerNbr);
+            break;
+        case 1:
+            selectedPlayer = document.getElementById(playerID);
+            selectedPlayer.style.backgroundColor = "red";
+            selectedPlayerNbr ++;
+            console.log(selectedPlayerNbr);
+            break;
+    }
+
+
+
+
+    if (selectedPlayerNbr < 2) {
+        let selectedPlayer = document.getElementById(playerID);
+        selectedPlayer.style.backgroundColor = "red";
+        selectedPlayerNbr ++;
+        console.log(selectedPlayerNbr);
+    }
+    else {
+        console.log(selectedPlayerNbr);
+    }
+    
 }
