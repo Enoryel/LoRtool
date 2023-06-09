@@ -33,5 +33,21 @@
         $compteur ++; 
       }
 
+      //Récupération unités par races
+
+      $requete = "SELECT NOM FROM units_data WHERE ARMEE = 'Les Royaumes Déchus'" ;
+      $resultat = mysqli_query($conn, $requete);
+
+      foreach($armiesList as $army) {
+        while ($donnees = mysqli_fetch_array($resultat)) {
+          $armiesList = [
+            [$donnees["NOM"]]
+          ];
+        }
+        
+      }
+    
+        
+
       mysqli_close($conn);
     ?>
