@@ -4,6 +4,7 @@ var compteur_joueurs_old = null;
 var usernames;
 var armies;
 var selectedPlayerNbr = 0;
+var selectedPlayer = [];
 
 //MODIFICATION EN FONCTION DU SELECTEUR DE NOMBRE DE JOUEURS
 function playerNbrSelector() {
@@ -132,43 +133,33 @@ function generatePlayersEntries(){
     }
 }
 
+function playerIsSelected(playerID) { // faire un tableau de booléens
+    let clickedPlayer = document.getElementById(playerID);
+    if (selectedPlayer.includes(playerID)) //unselect if selected
+    {
+        clickedPlayer.style.backgroundColor = "grey";
 
-
-//AFFICHER LISTE DES JOUEUR·EUSE·S
-function displayPlayers() {
-    for(let compteur_playerForm = 0; compteur_playerForm < compteur_joueurs; compteur_playerForm++){  
-        console.log(usernames[compteur_playerForm]+ ' = ' + armies[compteur_playerForm]);
+        let pos = selectedPlayer.indexOf(clickedPlayer);
+        selectedPlayer.splice(pos, 1);
     }
+    else if (selectedPlayer.length < 2) {    
+        clickedPlayer.style.backgroundColor = "red";
+        selectedPlayer.push(playerID);
+    }
+
+    generateUnitSelectors();
+
+    console.log(selectedPlayer.length);
+    selectedPlayer.forEach(function(element, key) {
+        console.log(element, key);
+    });
+    console.log('-------------------');
 }
 
-function playerIsSelected(playerID) {
-    let selectedPlayer;
-    switch (selectedPlayerNbr) {
-        case 0:
-            selectedPlayer = document.getElementById(playerID);
-            selectedPlayer.style.backgroundColor = "red";
-            selectedPlayerNbr ++;
-            console.log(selectedPlayerNbr);
-            break;
-        case 1:
-            selectedPlayer = document.getElementById(playerID);
-            selectedPlayer.style.backgroundColor = "red";
-            selectedPlayerNbr ++;
-            console.log(selectedPlayerNbr);
-            break;
-    }
 
-
-
-
-    if (selectedPlayerNbr < 2) {
-        let selectedPlayer = document.getElementById(playerID);
-        selectedPlayer.style.backgroundColor = "red";
-        selectedPlayerNbr ++;
-        console.log(selectedPlayerNbr);
-    }
-    else {
-        console.log(selectedPlayerNbr);
-    }
-    
+function generateUnitSelectors(){
+    selectedPlayer.forEach(function(element) {
+        
+    });
 }
+
