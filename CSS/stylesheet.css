@@ -29,7 +29,10 @@ a:visited, a:link {
     text-decoration: none;
     color: black;
     font-family: 'ft88gothique';
-    font-size: 250%;
+}
+
+h1 {
+    font-size: 350%;
 }
 
 h2 {
