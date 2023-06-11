@@ -63,18 +63,54 @@ function getArmies() {
   mysqli_close($conn);
 }
 
-function getFormDatas() {
+function getFormDatas () {
   $player_nbr = $_POST['player_nbr'];
   $players_datas = array();
   for ($compteur_joueurs = 1; $compteur_joueurs <= $player_nbr; $compteur_joueurs++) { 
       $player_name = $_POST['player_name' . $compteur_joueurs];
       $player_army = $_POST['player_army' . $compteur_joueurs];
-      $players_datas[$player_name] = $player_army; 
+      $players_datas[$player_name] = $player_army;
+  };
+
+  //Players buttons
+  echo "<div id='players_buttons'>";
+  foreach($players_datas as $key => $value){
+    echo "<button class='player_selector' id='{$key}' onclick='playerIsSelected(\"{$key}\")'>{$key}</button>";
+  }
+  echo "</div>";
+
+  //Armies selector
+  echo "<div id='armies_selector'>";
+  foreach($players_datas as $value){
+    echo "<select name='unit_selector' id='{$value}'>";
+    getUnitsList($value);
+    echo "</select>";
+  }
+  echo "</div>";
+};
+
+function getUnitsList($army) {
+  $conn = accessDB();
+
+  //Récupération units
+  $requete = "SELECT NOM FROM units_data WHERE ARMEE = ?";
+  $statement = mysqli_prepare($conn, $requete);
+  mysqli_stmt_bind_param($statement, 's', $army);
+  mysqli_stmt_execute($statement);
+  $resultat = mysqli_stmt_get_result($statement);
+
+  $unitsList = [];
+  $compteur = 0;
+  while ($donnees = mysqli_fetch_array($resultat)) {
+    $unitsList[$compteur] = $donnees['NOM'];
+    $compteur ++; 
   }
 
-  foreach($players_datas as $key => $value){
-      echo "<button class='player_selector' id='{$key}' onclick='playerIsSelected(\"{$key}\")'>{$key}</button>";
-  } 
+  foreach($unitsList as $option) {
+    echo '<option value="' . $option . '">' . $option . '</option>';
+  }
+
 }
+
 ?>
 
