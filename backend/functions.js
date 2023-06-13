@@ -3,8 +3,7 @@ var compteur_joueurs = 2;
 var compteur_joueurs_old = null;
 var usernames;
 var armies;
-var selectedPlayerNbr = 0;
-var selectedPlayer = [];
+var isPlayerSelected = [];
 
 //MODIFICATION EN FONCTION DU SELECTEUR DE NOMBRE DE JOUEURS
 function playerNbrSelector() {
@@ -133,32 +132,39 @@ function generatePlayersEntries(){
     }
 }
 
-function playerIsSelected(playerID) { // faire un tableau de booléens
+function playerIsSelected(playerID) {
+
     let clickedPlayer = document.getElementById(playerID);
-    if (selectedPlayer.includes(playerID)) //unselect if selected
-    {
-        clickedPlayer.style.backgroundColor = "grey";
+    let selectedPlayerNbr = isPlayerSelected.length;
+    console.log("Le nombre de joueur selectionné est de : " + selectedPlayerNbr);
 
-        let pos = selectedPlayer.indexOf(clickedPlayer);
-        selectedPlayer.splice(pos, 1);
+
+    if (isPlayerSelected[playerID] == true){
+        isPlayerSelected.splice(playerID, 1);
+        isPlayerSelected[playerID] = false;
+        clickedPlayer.style.backgroundColor = "#D0D0D7"; 
+        console.log(playerID + " passe à faux -> " + isPlayerSelected[playerID]);
     }
-    else if (selectedPlayer.length < 2) {    
+    else if (selectedPlayerNbr < 2){
+        isPlayerSelected.push(playerID);
+        isPlayerSelected[playerID] = true;
         clickedPlayer.style.backgroundColor = "red";
-        selectedPlayer.push(playerID);
-    }
+        console.log(playerID + " passe à vrai -> " + isPlayerSelected[playerID]);
+    };
 
-    generateUnitSelectors();
-
-    console.log(selectedPlayer.length);
-    selectedPlayer.forEach(function(element, key) {
-        console.log(element, key);
-    });
-    console.log('-------------------');
+    toogleShowUnitSelectors(playerID, isPlayerSelected[playerID]);
 }
 
 
-function generateUnitSelectors(){
-    selectedPlayer.forEach(function(element) {
-        
-    });
+function toogleShowUnitSelectors(playerID, flag){
+    let selectToShow = document.getElementById(playerID + '_units') ;
+    console.log(selectToShow);
+    if (flag) {
+        selectToShow.style.display = "block";
+        console.log("J'affiche la liste du " + playerID)
+    }
+    else if (!flag) {
+        selectToShow.style.display = "none";
+        console.log("Je masque la liste du " + playerID)
+    }
 }

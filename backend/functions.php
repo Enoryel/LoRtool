@@ -74,16 +74,16 @@ function getFormDatas () {
 
   //Players buttons
   echo "<div id='players_buttons'>";
-  foreach($players_datas as $key => $value){
-    echo "<button class='player_selector' id='{$key}' onclick='playerIsSelected(\"{$key}\")'>{$key}</button>";
+  foreach($players_datas as $player => $army){
+    echo "<button class='player_selector' id='{$player}' onclick='playerIsSelected(\"{$player}\")'>{$player}</button>";
   }
   echo "</div>";
 
   //Armies selector
   echo "<div id='armies_selector'>";
-  foreach($players_datas as $value){
-    echo "<select name='unit_selector' id='{$value}'>";
-    getUnitsList($value);
+  foreach($players_datas as $player => $army){
+    echo "<select class='unit_selector' id='{$player}_units'>";
+    getUnitsList($army);
     echo "</select>";
   }
   echo "</div>";

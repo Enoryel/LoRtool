@@ -62,3 +62,7 @@ h2 {
 #armies_selector {
     background-color: aquamarine;
 }
+
+.unit_selector {
+    display: none;
+}
