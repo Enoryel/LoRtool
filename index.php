@@ -4,9 +4,7 @@
       <!--RÉCUPÉRATION DES DONNÉES DEPUIS LA DATABASE-->
       <?php
         include("meta.php");
-
         include("header.php");
-        include("getData.php");
       ?>
 
       <!--SELECTEUR NOMBRE DE JOUEUR·EUSE·S-->
@@ -19,7 +17,8 @@
             <select name="player_nbr" id="player_nbr" onchange="playerNbrSelector()">
               <?php
                 // Boucle pour générer le nombre de joueur·euse·s
-                for ($i = $nbr_joueurs_min; $i <= $nbr_joueurs_max; $i++)
+                $nbr_joueurs_max = getMaxPlayers();
+                for ($i = 2; $i <= $nbr_joueurs_max; $i++)
                 {
                   echo "<option value='" . $i . "'>" . $i . " joueur·euse·s</option>";
                 }
@@ -36,9 +35,7 @@
                 <input name="player_name1" type="text" value="Joueur 1">
                 <select name="player_army1">
                   <?php
-                      foreach($armiesList as $option) {
-                        echo '<option value="' . $option . '">' . $option . '</option>';
-                      }
+                      getArmies();
                     ?>
                 </select>
               </div>
@@ -47,9 +44,7 @@
                 <input name="player_name2" type="text" value="Joueur 2">
                 <select name  ="player_army2">
                   <?php
-                      foreach($armiesList as $option) {
-                        echo '<option value="' . $option . '">' . $option . '</option>';
-                      }
+                      getArmies();
                     ?>
                 </select>
               </div>

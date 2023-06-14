@@ -3,7 +3,7 @@ var compteur_joueurs = 2;
 var compteur_joueurs_old = null;
 var usernames;
 var armies;
-var selectedPlayerNbr = 0;
+var isPlayerSelected = [];
 
 //MODIFICATION EN FONCTION DU SELECTEUR DE NOMBRE DE JOUEURS
 function playerNbrSelector() {
@@ -132,43 +132,39 @@ function generatePlayersEntries(){
     }
 }
 
+function playerIsSelected(playerID) {
+
+    let clickedPlayer = document.getElementById(playerID);
+    let selectedPlayerNbr = isPlayerSelected.length;
+    console.log("Le nombre de joueur selectionné est de : " + selectedPlayerNbr);
 
 
-//AFFICHER LISTE DES JOUEUR·EUSE·S
-function displayPlayers() {
-    for(let compteur_playerForm = 0; compteur_playerForm < compteur_joueurs; compteur_playerForm++){  
-        console.log(usernames[compteur_playerForm]+ ' = ' + armies[compteur_playerForm]);
+    if (isPlayerSelected[playerID] == true){
+        isPlayerSelected.splice(playerID, 1);
+        isPlayerSelected[playerID] = false;
+        clickedPlayer.style.backgroundColor = "#D0D0D7"; 
+        console.log(playerID + " passe à faux -> " + isPlayerSelected[playerID]);
     }
+    else if (selectedPlayerNbr < 2){
+        isPlayerSelected.push(playerID);
+        isPlayerSelected[playerID] = true;
+        clickedPlayer.style.backgroundColor = "red";
+        console.log(playerID + " passe à vrai -> " + isPlayerSelected[playerID]);
+    };
+
+    toogleShowUnitSelectors(playerID, isPlayerSelected[playerID]);
 }
 
-function playerIsSelected(playerID) {
-    let selectedPlayer;
-    switch (selectedPlayerNbr) {
-        case 0:
-            selectedPlayer = document.getElementById(playerID);
-            selectedPlayer.style.backgroundColor = "red";
-            selectedPlayerNbr ++;
-            console.log(selectedPlayerNbr);
-            break;
-        case 1:
-            selectedPlayer = document.getElementById(playerID);
-            selectedPlayer.style.backgroundColor = "red";
-            selectedPlayerNbr ++;
-            console.log(selectedPlayerNbr);
-            break;
+
+function toogleShowUnitSelectors(playerID, flag){
+    let selectToShow = document.getElementById(playerID + '_units') ;
+    console.log(selectToShow);
+    if (flag) {
+        selectToShow.style.display = "block";
+        console.log("J'affiche la liste du " + playerID)
     }
-
-
-
-
-    if (selectedPlayerNbr < 2) {
-        let selectedPlayer = document.getElementById(playerID);
-        selectedPlayer.style.backgroundColor = "red";
-        selectedPlayerNbr ++;
-        console.log(selectedPlayerNbr);
+    else if (!flag) {
+        selectToShow.style.display = "none";
+        console.log("Je masque la liste du " + playerID)
     }
-    else {
-        console.log(selectedPlayerNbr);
-    }
-    
 }
