@@ -82,7 +82,7 @@ function getFormDatas () {
   //Armies selector
   echo "<div id='armies_selector'>";
   foreach($players_datas as $player => $army){
-    echo "<select class='unit_selector' id='{$player}_units' onchange=\"unitSelector({$player})\">";
+    echo "<select class='unit_selector' id='{$player}_units' onchange=\"unitSelector('{$player}')\">";
     getUnitsList($army);
     echo "</select>";
   }

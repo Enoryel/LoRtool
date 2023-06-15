@@ -152,37 +152,37 @@ function resolveFight(A, B) {
         case keyValue >= 2 :
             result.innerHTML = '3';
             console.log("RESULTAT = " + 3);
-            console.log("-------------------")
+            console.log("-------------------");
             break;
         case keyValue = 0 || 1 :
             result.innerHTML = '4';
             console.log("RESULTAT = " + 4);
-            console.log("-------------------")
+            console.log("-------------------");
             break;
         case keyValue = -2 || -1 :
             result.innerHTML = '5';
             console.log("RESULTAT = " + 5);
-            console.log("-------------------")
+            console.log("-------------------");
             break;
         case keyValue = -4 || -3 :
             result.innerHTML = '6';
             console.log("RESULTAT = " + 6);
-            console.log("-------------------")
+            console.log("-------------------");
             break;
         case keyValue = -6 || -5 :
             result.innerHTML = '6 & 4';
             console.log("RESULTAT = 6/4");
-            console.log("-------------------")
+            console.log("-------------------");
             break;
         case keyValue = -8 || -7 :
             result.innerHTML = '6 & 5';
             console.log("RESULTAT = 6/5");
-            console.log("-------------------")
+            console.log("-------------------");
             break;
         case keyValue <= -9 :
             result.innerHTML = '6 & 6';
             console.log("RESULTAT = 6/6");
-            console.log("-------------------")
+            console.log("-------------------");
             break;
     }
 }
