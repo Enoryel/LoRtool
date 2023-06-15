@@ -1,9 +1,9 @@
 /**********************SCRIPTS LORTOOL**********************/
 var compteur_joueurs = 2;
 var compteur_joueurs_old = null;
-var usernames;
-var armies;
 var isPlayerSelected = [];
+var unitsDatas = [];
+var protagonists = [];
 
 //MODIFICATION EN FONCTION DU SELECTEUR DE NOMBRE DE JOUEURS
 function playerNbrSelector() {
@@ -77,53 +77,6 @@ function deletePlayer(ID) {
     playerToDelete.remove();
 };
 
-//VALIDATION LISTE DES JOUEUR·EUSE·S
-
-function playersForm_submit() {
-
-    var form = document.getElementById('playersForm');
-    var formData = new FormData(form);
-
-    // //SOLUTION 1
-    // for(let compteur_playerForm = 1; compteur_playerForm <= compteur_joueurs; compteur_playerForm++){
-    //     let playerToGet = 'player' + compteur_playerForm; //elementToGet = `player${compteur_playerForm}_name`
-    //     let playerToGet_name = formData.get(playerToGet + '_name');
-    //     let playerToGet_Armee = formData.get(playerToGet + '_armee');
-
-    //     infosJoueurs[playerToGet_name] = playerToGet_Armee;
-    //     console.log(playerToGet_name + ' = ' + infosJoueurs[playerToGet_name]);
-    // }
-
-    // SOLUTION 2
-    // let armee_jouee_bool = false;
-    // let nom_joueur_temp;
-    // let armee_jouee_temp; 
-    // for (var [name, value] of formData) {    
-    //     if (!armee_jouee_bool){
-    //         nom_joueur_temp = `${value}`;
-    //         armee_jouee_bool = true;
-    //     }
-    //     else if (armee_jouee_bool){
-    //         armee_jouee_temp = `${value}`;
-    //         infosJoueurs[nom_joueur_temp] = armee_jouee_temp;
-    //         armee_jouee_bool = false;
-
-    //         console.log(nom_joueur_temp + ' = ' + infosJoueurs[nom_joueur_temp]);
-    //     }
-    // }
-
-    // for (const pair of formData.entries()) {
-    //     console.log(`${pair[0]}, ${pair[1]}`);
-    // }
-
-    // SOLUTION 3
-
-    usernames = formData.getAll('player_name');
-    armies = formData.getAll('player_army');
-    
-
-};
-
 function generatePlayersEntries(){
     let fighter = document.getElementsByClassName(fighter).innerHTML;
     
@@ -131,6 +84,8 @@ function generatePlayersEntries(){
         fighter += `<option value =>${usernames[compteur_playerForm]}</option>`;
     }
 }
+
+//SELECTION DES JOUEURS
 
 function playerIsSelected(playerID) {
 
@@ -155,6 +110,7 @@ function playerIsSelected(playerID) {
     toogleShowUnitSelectors(playerID, isPlayerSelected[playerID]);
 }
 
+//AFFICHER OU MASQUER JOUEURS
 
 function toogleShowUnitSelectors(playerID, flag){
     let selectToShow = document.getElementById(playerID + '_units') ;
@@ -166,5 +122,67 @@ function toogleShowUnitSelectors(playerID, flag){
     else if (!flag) {
         selectToShow.style.display = "none";
         console.log("Je masque la liste du " + playerID)
+    }
+}
+
+function getUnitsStats(unit, combat){
+    unitsDatas[unit] = combat;
+}
+
+function unitSelector(player) {
+    unitSelected = document.getElementById(player + '_units').value;
+    unitCombat = unitsDatas[unitSelected];
+    if (protagonists.length <= 2){
+        protagonists.push(unitCombat);
+    }
+    else if (protagonists.length >= 2){
+        protagonists.pop();
+        protagonists.push(unitCombat);
+    }
+    protagonists.forEach(element => {
+        console.log("protagoniste = " + element);  
+    });
+    resolveFight(protagonists[0], protagonists[1])   
+}
+
+function resolveFight(A, B) {
+    let result = document.getElementById('result');
+    let keyValue = A - B;
+    switch (keyValue) {
+        case keyValue >= 2 :
+            result.innerHTML = '3';
+            console.log("RESULTAT = " + 3);
+            console.log("-------------------")
+            break;
+        case keyValue = 0 || 1 :
+            result.innerHTML = '4';
+            console.log("RESULTAT = " + 4);
+            console.log("-------------------")
+            break;
+        case keyValue = -2 || -1 :
+            result.innerHTML = '5';
+            console.log("RESULTAT = " + 5);
+            console.log("-------------------")
+            break;
+        case keyValue = -4 || -3 :
+            result.innerHTML = '6';
+            console.log("RESULTAT = " + 6);
+            console.log("-------------------")
+            break;
+        case keyValue = -6 || -5 :
+            result.innerHTML = '6 & 4';
+            console.log("RESULTAT = 6/4");
+            console.log("-------------------")
+            break;
+        case keyValue = -8 || -7 :
+            result.innerHTML = '6 & 5';
+            console.log("RESULTAT = 6/5");
+            console.log("-------------------")
+            break;
+        case keyValue <= -9 :
+            result.innerHTML = '6 & 6';
+            console.log("RESULTAT = 6/6");
+            console.log("-------------------")
+            break;
     }
 }

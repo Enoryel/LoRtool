@@ -5,6 +5,9 @@
     include("header.php");
     getFormDatas();  
   ?>
-
+  </body>
+    <div id="result">
+      <p>?</p>
+    </div>
   </body>
 </html>

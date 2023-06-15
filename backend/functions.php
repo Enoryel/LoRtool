@@ -82,7 +82,7 @@ function getFormDatas () {
   //Armies selector
   echo "<div id='armies_selector'>";
   foreach($players_datas as $player => $army){
-    echo "<select class='unit_selector' id='{$player}_units'>";
+    echo "<select class='unit_selector' id='{$player}_units' onchange=\"unitSelector({$player})\">";
     getUnitsList($army);
     echo "</select>";
   }
@@ -93,7 +93,7 @@ function getUnitsList($army) {
   $conn = accessDB();
 
   //Récupération units
-  $requete = "SELECT NOM FROM units_data WHERE ARMEE = ?";
+  $requete = "SELECT * FROM units_data WHERE ARMEE = ?";
   $statement = mysqli_prepare($conn, $requete);
   mysqli_stmt_bind_param($statement, 's', $army);
   mysqli_stmt_execute($statement);
@@ -102,12 +102,13 @@ function getUnitsList($army) {
   $unitsList = [];
   $compteur = 0;
   while ($donnees = mysqli_fetch_array($resultat)) {
-    $unitsList[$compteur] = $donnees['NOM'];
+    $unitsList[$donnees['NOM']] = $donnees['COMBAT'];
     $compteur ++; 
   }
 
-  foreach($unitsList as $option) {
-    echo '<option value="' . $option . '">' . $option . '</option>';
+  foreach($unitsList as $unit => $combat) {
+    echo '<option value="' . $unit . '">' . $unit . '</option>';
+    echo "<script>getUnitsStats(\"{$unit}\",\"{$combat}\")</script>";
   }
 
 }

@@ -49,7 +49,7 @@
                 </select>
               </div>
 
-        <input type="submit" id="submit_button" value="Confirmer" oninput="playersForm_submit();return false">
+        <input type="submit" id="submit_button" value="Confirmer">
         </form>
     
     
