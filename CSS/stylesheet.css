@@ -2,12 +2,6 @@ body * {
     font-family: 'baskervvol';
 }
 
-#header {
-    width: 100%;
-    height: 150px;
-    padding-top: 10px;
-}
-
 #title {
     padding-top: 0.5em;
     float: left;
@@ -16,10 +10,6 @@ body * {
 #settings {
     padding-left: 10px;
     padding-top: 1000px;
-}
-
-#content {
-    width: 100%;
 }
 
 a:visited, a:link {
@@ -62,4 +52,4 @@ h2 {
 
 .unit_selector {
     display: none;
-}
+};
