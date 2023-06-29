@@ -55,12 +55,12 @@ function getArmies() {
     $armiesList[$compteur] = $donnees["ARMEE"];
     $compteur ++; 
   }
+    
+  mysqli_close($conn);
 
   foreach($armiesList as $option) {
     echo '<option value="' . $option . '">' . $option . '</option>';
   };
-    
-  mysqli_close($conn);
 }
 
 function getFormDatas () {
