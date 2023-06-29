@@ -13,7 +13,7 @@
         
 
       <h2>Nombre de joueur·euse·s</h2>
-          <div id="player_number_selector">
+          <div class="d-grid col-1 ms-1 mb-3">
             <select name="player_nbr" id="player_nbr" class="form-select" onchange="playerNbrSelector()">
               <?php
                 // Boucle pour générer le nombre de joueur·euse·s
@@ -31,23 +31,31 @@
 
         <h2>Noms et armées jouées</h2>
 
-              <div id="player1" class="input-group">
-                <input type="text" class="form-control" name="player_name1"  value="Joueur 1">
-                <select name="player_army1" class="form-select">
-                  <?php
-                    getArmies();
-                  ?>
-                </select>
-              </div>
+                <div class="container-fluid col-6">
 
-              <div id="player2" class="input-group">
-                <input type="text" class="form-control" name="player_name2"  value="Joueur 2">
-                <select name="player_army2" class="form-select">
-                  <?php
-                    getArmies();
-                  ?>
-                </select>
-              </div>
+                    <div id="player1" class="input-group">
+                      <div class="col-5">
+                        <input type="text" class="form-control" name="player_name1"  value="Joueur 1">
+                      </div>
+                      <select name="player_army1" class="form-select">
+                      <?php
+                        getArmies();
+                      ?>
+                    </select>
+                    </div>
+
+                    <div id="player2" class="input-group">
+                      <div class="col-5">
+                        <input type="text" class="form-control" name="player_name2"  value="Joueur 2">
+                      </div>
+                      <select name="player_army2" class="form-select">
+                      <?php
+                        getArmies();
+                      ?>
+                    </select>
+                    </div>
+
+                </div>
 
               <!-- <div id="player2">
                 <input name="player_name2" type="text" value="Joueur 2">
