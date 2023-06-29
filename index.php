@@ -12,8 +12,10 @@
       <!-- <form action="https://show.ratufa.io/" id ="playersForm" method="post"> -->
         
 
-      <h2>Nombre de joueur·euse·s</h2>
-          <div class="d-grid col-1 ms-1 mb-3">
+      
+          <div class="container mb-5">
+          <p class="h2">Nombre de joueur·euse·s</p>
+
             <select name="player_nbr" id="player_nbr" class="form-select" onchange="playerNbrSelector()">
               <?php
                 // Boucle pour générer le nombre de joueur·euse·s
@@ -28,43 +30,39 @@
 
       <!--SELECTEUR INFOS JOUEUR·EUSE·S-->
 
+          <div class="container mb-3" id="player1">
+          <p class="h2">Noms et armées jouées</p>
 
-        <h2>Noms et armées jouées</h2>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Joueur 1</span>
+              </div>
+              <input type="text" class="form-control" name="player_name1"  value="Nom">
+            </div>
 
-                <div class="container-fluid col-6">
+            <select name="player_army1" class="form-select">
+              <?php
+                getArmies();
+              ?>
+            </select>
 
-                    <div id="player1" class="input-group">
-                      <div class="col-5">
-                        <input type="text" class="form-control" name="player_name1"  value="Joueur 1">
-                      </div>
-                      <select name="player_army1" class="form-select">
-                      <?php
-                        getArmies();
-                      ?>
-                    </select>
-                    </div>
+          </div>
+          
+          <div class="container p-3 mb-3" id="player2">
 
-                    <div id="player2" class="input-group">
-                      <div class="col-5">
-                        <input type="text" class="form-control" name="player_name2"  value="Joueur 2">
-                      </div>
-                      <select name="player_army2" class="form-select">
-                      <?php
-                        getArmies();
-                      ?>
-                    </select>
-                    </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Joueur 2</span>
+              </div>
+              <input type="text" class="form-control" name="player_name2"  value="Nom">
+            </div>
 
-                </div>
-
-              <!-- <div id="player2">
-                <input name="player_name2" type="text" value="Joueur 2">
-                <select name  ="player_army2">
-                    <?php
-                      getArmies();
-                    ?>
-                </select>
-              </div> -->
+            <select name="player_army2" class="form-select">
+              <?php
+                getArmies();
+              ?>
+            </select>
+          </div>
   
         <div class="d-grid col-4 mx-auto">
           <input type="submit" id="submit_button" value="Confirmer" class="btn btn-outline-dark mt-3">

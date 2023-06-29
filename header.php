@@ -1,23 +1,10 @@
 <body>
 
-  <div id = "header">
-
-    <span id = 'title'>
-      <h1><a href='index.php'>LoRTool</a></h1>
-    </span>
-
-    <span id= 'settings'>
+    <div id="header" class="container">
+      <p class="h1">LoRTool</p>
       <a href="settings.php">
         <i class='fa fa-cog fa-lg' aria-hidden='true' onclick="openSettings()"></i>
-</a>
-    </span>
-
-
-
-  </div>
-
-  
-
-  <div id = "content">
+      </a>
+    </div>
 
     
