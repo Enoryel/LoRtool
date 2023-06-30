@@ -39,24 +39,24 @@ function addPlayer() {
 
 function generatePlayer(ID) {
     //Définition des variables de base
-    let copiedPlayer = "player1";
+    let copiedPlayerID = "player1";
     let newPlayerID = "player" + ID;
     let newPlayerValue = "Joueur " + ID;
-    let newPlayerPseudo = "player_name" + ID;
-    let newPlayerArmy = "player_army" + ID;
+    let newPlayerName = `player${ID}_name`;
+    let newPlayerArmy = `player${ID}_army`;
 
-    let elem = document.getElementById(copiedPlayer);
-    let clone = elem.cloneNode(true);
+    let copiedPlayer = document.getElementById(copiedPlayerID);
+    let clone = copiedPlayer.cloneNode(true);  
     clone.id = newPlayerID;
 
-    clone.firstElementChild.name = newPlayerPseudo;
-    clone.firstElementChild.value = newPlayerValue;
-    clone.lastElementChild.name = newPlayerArmy;
+    let playerName = clone.querySelector('[name="player1_name"]');
+    playerName.name = newPlayerName;
+    playerName.value = newPlayerValue;
 
-    // document.getElementById('playersForm').appendChild(clone);
-    parentNode = document.getElementById('playersForm');
-    referenceNode = document.getElementById('submit_button');
-    parentNode.insertBefore(clone, referenceNode);
+    let playerArmy = clone.querySelector('[name="player1_army"]');
+    playerArmy.name = newPlayerArmy;
+
+    document.getElementById('player_entries').appendChild(clone);
     console.log(newPlayerID + " généré");
 };
     

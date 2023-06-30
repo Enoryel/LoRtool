@@ -1,25 +1,30 @@
-body * {
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
+
+option * {
     font-family: 'baskervvol';
-}
-
-#title {
-    padding-top: 0.5em;
-    float: left;
-}
-
-#settings {
-    padding-left: 10px;
-    padding-top: 1000px;
+    font-size: 15pt;
 }
 
 a:visited, a:link {
     text-decoration: none;
     color: black;
-    font-family: 'ft88gothique';
+}
+
+#header {
+    text-align: center;
 }
 
 h1 {
-    font-size: 350%;
+    font-size: 400% !important;
+    font-family: 'ft88gothique' !important;
 }
 
 h2 {
@@ -27,9 +32,10 @@ h2 {
     font-size: 150%;
 }
 
-#footer {
-    border-top: 1 px solid black;
-    text-align: center;
+
+
+.player_entry {
+    margin-bottom: 5pt !important;
 }
 
 .player_selectorDiv {
