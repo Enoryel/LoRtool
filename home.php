@@ -3,7 +3,7 @@
   <?php
     include("meta.php");
     include("header.php");
-    getFormDatas();  
+    getFormDatas();
   ?>
   </body>
     <div id="result">
