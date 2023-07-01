@@ -16,7 +16,7 @@
         <div class="container mb-4">
         <p class="h2">Nombre de joueur·euse·s</p>
 
-          <select name="player_nbr" id="player_nbr" class="form-select" onchange="playerNbrSelector()">
+          <select name="player_nbr" id="player_nbr" class="form-select" autocomplete="off" onchange="playerNbrSelector()">
             <?php
               // Boucle pour générer le nombre de joueur·euse·s
               $nbr_joueurs_max = getMaxPlayers();

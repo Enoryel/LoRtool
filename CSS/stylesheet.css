@@ -8,8 +8,8 @@ footer {
     margin-top: auto;
 }
 
-option * {
-    font-family: 'baskervvol';
+form {
+    font-family: 'baskervvol' !important;
     font-size: 15pt;
 }
 
@@ -27,8 +27,8 @@ h1 {
     font-family: 'ft88gothique' !important;
 }
 
-h2 {
-    font-family: 'tricksterregular';
+form h2 {
+    font-family: 'tricksterregular' !important;
     font-size: 150%;
 }
 
