@@ -75,7 +75,7 @@ function getFormDatas () {
   //Players buttons
   echo "<div id='players_buttons'>";
   foreach($players_datas as $player => $army){
-    echo "<button class='player_selector' id='{$player}' onclick='playerIsSelected(\"{$player}\")'>{$player}</button>";
+    echo "<button type='button' class='btn btn-outline-dark' autocomplete='off' id='{$player}' onclick='playerIsSelected(\"{$player}\")'>{$player}</button>";
   }
   echo "</div>";
 

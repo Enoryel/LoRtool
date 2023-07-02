@@ -97,13 +97,13 @@ function playerIsSelected(playerID) {
     if (isPlayerSelected[playerID] == true){
         isPlayerSelected.splice(playerID, 1);
         isPlayerSelected[playerID] = false;
-        clickedPlayer.style.backgroundColor = "#D0D0D7"; 
+        clickedPlayer.setAttribute("class", "btn btn-outline-dark"); 
         console.log(playerID + " passe à faux -> " + isPlayerSelected[playerID]);
     }
     else if (selectedPlayerNbr < 2){
         isPlayerSelected.push(playerID);
         isPlayerSelected[playerID] = true;
-        clickedPlayer.style.backgroundColor = "red";
+        clickedPlayer.setAttribute("class", "btn btn-dark");
         console.log(playerID + " passe à vrai -> " + isPlayerSelected[playerID]);
     };
 

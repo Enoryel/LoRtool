@@ -4,13 +4,13 @@ body {
     flex-direction: column;
 }
 
-footer {
-    margin-top: auto;
+body * {
+    font-family: 'baskervvol';
+    font-size: 15pt !important;
 }
 
-form {
-    font-family: 'baskervvol' !important;
-    font-size: 15pt;
+footer {
+    margin-top: auto;
 }
 
 a:visited, a:link {
@@ -23,13 +23,13 @@ a:visited, a:link {
 }
 
 h1 {
-    font-size: 400% !important;
+    font-size: 380% !important;
     font-family: 'ft88gothique' !important;
 }
 
-form h2 {
+h2 {
     font-family: 'tricksterregular' !important;
-    font-size: 150%;
+    font-size: 150% !important;
 }
 
 
@@ -46,14 +46,6 @@ form h2 {
     border: 1px solid black;
     padding: 10px;
     margin: 10px;
-}
-
-#players_buttons {
-    background-color: violet;
-}
-
-#armies_selector {
-    background-color: aquamarine;
 }
 
 .unit_selector {

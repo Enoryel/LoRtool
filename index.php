@@ -13,8 +13,8 @@
       <!-- <form action="https://show.ratufa.io/" id ="playersForm" method="post"> -->
         
         <!--Sélecteur nombre joueur·euse·s-->
-        <div class="container mb-4">
-        <p class="h2">Nombre de joueur·euse·s</p>
+        <div class="mb-4">
+        <h2>Nombre de joueur·euse·s</h2>
 
           <select name="player_nbr" id="player_nbr" class="form-select" autocomplete="off" onchange="playerNbrSelector()">
             <?php
@@ -29,14 +29,14 @@
         </div>
 
         <!--Sélecteur infos joueur·euse·s-->
-        <div class="container mb-4" id="player_entries">
-          <p class="h2">Noms et armées jouées</p>
+        <div class="mb-4" id="player_entries">
+          <h2>Noms et armées jouées</h2>
 
           <div class="mb-3" id="player1">
 
             <div class="input-group">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Joueur 1</span>
+                <span class="input-group-text">Joueur 1</span>
               </div>
               <input type="text" class="form-control" name="player1_name"  value="Joueur 1">
             </div>

@@ -3,11 +3,22 @@
   <?php
     include("meta.php");
     include("header.php");
-    getFormDatas();
   ?>
-  </body>
-    <div id="result">
-      <p>?</p>
+
+
+    <div class="mb-4" id="player_selection">
+        <h2>Antagonistes</h2>
+
+        <?php
+          getFormDatas();
+        ?>
     </div>
-  </body>
+  
+    <!-- <div id="result" class="d-grid col-6 mx-auto">
+      <p>?</p>
+    </div> -->
+
+  <?php
+    include("footer.php")
+  ?>
 </html>
