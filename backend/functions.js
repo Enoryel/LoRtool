@@ -116,11 +116,11 @@ function toogleShowUnitSelectors(playerID, flag){
     let selectToShow = document.getElementById(playerID + '_units') ;
     console.log(selectToShow);
     if (flag) {
-        selectToShow.style.display = "block";
+        selectToShow.setAttribute("class", "form-select");
         console.log("J'affiche la liste du " + playerID)
     }
     else if (!flag) {
-        selectToShow.style.display = "none";
+        selectToShow.setAttribute("class", "visually-hidden");
         console.log("Je masque la liste du " + playerID)
     }
 }

@@ -83,11 +83,9 @@ function generatePlayerSelector() {
   global $players_datas, $player_nbr;
   switch ($player_nbr){
     case 2:
-      echo "<div id='players_buttons'>";
       foreach($players_datas as $player => $army){
         echo "<button type='button' class='btn btn-outline-dark mx-3' autocomplete='off' id='{$player}' onclick='playerIsSelected(\"{$player}\")'>{$player}</button>";
       }
-      echo "</div>";
       break;
     case 3:
       echo "<div id='players_buttons'>";
@@ -96,19 +94,15 @@ function generatePlayerSelector() {
       break;
   } 
 }
-
-
-
-  //Players buttons
   
 function generateUnitSelector() {
   global $players_datas, $player_nbr;
-  //Armies selector
-  echo "<div id='armies_selector'>";
+
+  echo "<div class='row'>";
   foreach($players_datas as $player => $army){
-    echo "<select class='unit_selector' id='{$player}_units' onchange=\"unitSelector('{$player}')\">";
+    echo "<div class='col'><select name='unit_selector' class='visually-hidden' id='{$player}_units' onchange=\"unitSelector('{$player}')\">";
     getUnitsList($army);
-    echo "</select>";
+    echo "</select></div>";
   }
   echo "</div>";
 }
