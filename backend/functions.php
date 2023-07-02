@@ -1,4 +1,6 @@
 <?php
+$players_datas = array();
+$player_nbr;
 function accessDB() {
   //Configuration accès database
   $ser="localhost:3306";
@@ -63,22 +65,44 @@ function getArmies() {
   };
 }
 
-function getFormDatas () {
+function getData() {
+  global $players_datas, $player_nbr;
+  
+  //Stockage données du formulaire index.php
   $player_nbr = $_POST['player_nbr'];
-  $players_datas = array();
   for ($compteur_joueurs = 1; $compteur_joueurs <= $player_nbr; $compteur_joueurs++) { 
       $player_name = $_POST["player{$compteur_joueurs}_name"];
       $player_army = $_POST["player{$compteur_joueurs}_army"];
       $players_datas[$player_name] = $player_army;
   };
 
-  //Players buttons
-  echo "<div id='players_buttons'>";
-  foreach($players_datas as $player => $army){
-    echo "<button type='button' class='btn btn-outline-dark' autocomplete='off' id='{$player}' onclick='playerIsSelected(\"{$player}\")'>{$player}</button>";
-  }
-  echo "</div>";
+  //Récupération des unités BDD SQL
+}
 
+function generatePlayerSelector() {
+  global $players_datas, $player_nbr;
+  switch ($player_nbr){
+    case 2:
+      echo "<div id='players_buttons'>";
+      foreach($players_datas as $player => $army){
+        echo "<button type='button' class='btn btn-outline-dark mx-3' autocomplete='off' id='{$player}' onclick='playerIsSelected(\"{$player}\")'>{$player}</button>";
+      }
+      echo "</div>";
+      break;
+    case 3:
+      echo "<div id='players_buttons'>";
+      break;
+    case 4:
+      break;
+  } 
+}
+
+
+
+  //Players buttons
+  
+function generateUnitSelector() {
+  global $players_datas, $player_nbr;
   //Armies selector
   echo "<div id='armies_selector'>";
   foreach($players_datas as $player => $army){
@@ -87,7 +111,7 @@ function getFormDatas () {
     echo "</select>";
   }
   echo "</div>";
-};
+}
 
 function getUnitsList($army) {
   $conn = accessDB();

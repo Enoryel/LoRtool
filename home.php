@@ -3,16 +3,23 @@
   <?php
     include("meta.php");
     include("header.php");
+    getData();
   ?>
 
+  <h2>Antagonistes</h2>
+  <div id="players_selector" class="my-4">
+    <?php
+      generatePlayerSelector();
+    ?>
+  </div>
 
-    <div class="mb-4" id="player_selection">
-        <h2>Antagonistes</h2>
+  <hr>
 
-        <?php
-          getFormDatas();
-        ?>
-    </div>
+  <div id="units_selector" class="my-4">
+    <?php
+      generateUnitSelector();
+    ?>
+  </div>
   
     <!-- <div id="result" class="d-grid col-6 mx-auto">
       <p>?</p>
