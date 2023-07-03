@@ -89,7 +89,7 @@ function generatePlayersEntries(){
 
 function playerIsSelected(playerID) {
 
-    let clickedPlayer = document.getElementsByName(playerID);
+    let clickedPlayer = document.getElementById(playerID);
     let selectedPlayerNbr = isPlayerSelected.length;
     console.log("Le nombre de joueur selectionné est de : " + selectedPlayerNbr);
 
@@ -97,13 +97,13 @@ function playerIsSelected(playerID) {
     if (isPlayerSelected[playerID] == true){
         isPlayerSelected.splice(playerID, 1);
         isPlayerSelected[playerID] = false;
-        clickedPlayer.setAttribute("class", "btn btn-outline-dark mx-3"); 
+        clickedPlayer.setAttribute("class", "btn btn-outline-dark my-2"); 
         console.log(playerID + " passe à faux -> " + isPlayerSelected[playerID]);
     }
     else if (selectedPlayerNbr < 2){
         isPlayerSelected.push(playerID);
         isPlayerSelected[playerID] = true;
-        clickedPlayer.setAttribute("class", "btn btn-dark mx-3");
+        clickedPlayer.setAttribute("class", "btn btn-dark my-2");
         console.log(playerID + " passe à vrai -> " + isPlayerSelected[playerID]);
     };
 
@@ -116,11 +116,11 @@ function toogleShowUnitSelectors(playerID, flag){
     let selectToShow = document.getElementById(playerID + '_units') ;
     console.log(selectToShow);
     if (flag) {
-        selectToShow.setAttribute("class", "form-select");
+        selectToShow.style.display = "block";
         console.log("J'affiche la liste du " + playerID)
     }
     else if (!flag) {
-        selectToShow.setAttribute("class", "visually-hidden");
+        selectToShow.style.display = "none";
         console.log("Je masque la liste du " + playerID)
     }
 }

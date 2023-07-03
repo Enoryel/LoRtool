@@ -4,13 +4,15 @@ body {
     flex-direction: column;
 }
 
-body * {
+#content * {
     font-family: 'baskervvol';
     font-size: 15pt !important;
 }
 
 footer {
     margin-top: auto;
+    font-family: 'baskervvol';
+    font-size: 12pt !important;
 }
 
 a:visited, a:link {

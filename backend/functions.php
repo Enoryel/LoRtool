@@ -70,7 +70,6 @@ function getArmies() {
 
 function getDatasAndGeneratePlayers() {
   global $players_datas, $player_nbr;
-  $lastPlayer = ($player_nbr-1);
   $newLineNext = false;
   
   //Stockage données du formulaire index.php
@@ -82,7 +81,7 @@ function getDatasAndGeneratePlayers() {
       $player_army = $_POST["player{$compteur_joueurs}_army"];
       $players_datas[$player_name] = $player_army;
 
-      if ($compteur_joueurs == $lastPlayer) //SI c'est le dernier joueur généré
+      if ($compteur_joueurs == $player_nbr) //SI c'est le dernier joueur généré
       { 
         if (evenOrOdd($player_nbr) == "even")
         {
@@ -99,7 +98,7 @@ function getDatasAndGeneratePlayers() {
       else if($newLineNext) //S'il est à DROITE (fin de ligne = une nouvelle ligne doit être générée)
       {
         generatePlayerButton($player_name, "text-start");
-        echo "</div><div class='row my-3'>";
+        echo "</div><div class='row'>";
         $newLineNext = false;
         console_log("Je génère le joueur " . $player_name . " à droite");
 
@@ -118,39 +117,6 @@ function getDatasAndGeneratePlayers() {
   //Récupération des unités BDD SQL
   }
 
-function generatePlayerSelector() {
-  global $players_datas, $player_nbr;
-  $generatedButtonsOnRow = 0;
-  $newLineNext = false;
-  
-  echo "<div class='row'>";
-
-  foreach($players_datas as $player => $army){
-    if($newLineNext)
-    {
-      generatePlayerButton($player, "text-start");
-      echo "</div><div class='row my-3'>";
-      $newLineNext = false;
-      console_log("Je génère le " . $player . " à droite");
-
-    }
-    else if(!$newLineNext)
-    {
-      generatePlayerButton($player, "text-end");
-      $newLineNext = true;
-      console_log("Je génère le " . $player . " à gauche");
-    }
-  }
-
-  echo "</div>";
-  if (evenOrOdd($player_nbr) == "odd")
-  {
-    echo "<script>let lastOddPlayer = document.getElementById('{$player[$player_nbr]}')
-    lastOddPlayer.setAttribute('class','col text-center')</script>";
-  }
-  
-}
-
 function evenOrOdd($number) {
   if ($number%2 == 1){
     return "odd";
@@ -161,8 +127,8 @@ function evenOrOdd($number) {
 }
 
 function generatePlayerButton($player, $align) {
-    echo "<div id='$player' class='col $align'>
-    <button type='button' class='btn btn-outline-dark mx-3' autocomplete='off' name='{$player}' onclick='playerIsSelected(\"{$player}\")'>{$player}</button>
+    echo "<div class='col $align'>
+    <button type='button' class='btn btn-outline-dark my-2' style='width:100pt' autocomplete='off' id='$player' onclick='playerIsSelected(\"{$player}\")'>{$player}</button>
     </div>";
 
 }
@@ -172,7 +138,7 @@ function generateUnitSelector() {
 
   echo "<div class='row'>";
   foreach($players_datas as $player => $army){
-    echo "<div class='col'><select name='unit_selector' class='visually-hidden' id='{$player}_units' onchange=\"unitSelector('{$player}')\">";
+    echo "<div class='col text-center' style='display:none' id='{$player}_units'><select name='unit_selector' onchange=\"unitSelector('{$player}')\">";
     getUnitsList($army);
     echo "</select></div>";
   }
