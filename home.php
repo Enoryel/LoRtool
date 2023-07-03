@@ -3,13 +3,12 @@
   <?php
     include("meta.php");
     include("header.php");
-    getData();
   ?>
 
   <h2>Antagonistes</h2>
   <div id="players_selector" class="my-4">
     <?php
-      generatePlayerSelector();
+      getDatasAndGeneratePlayers();
     ?>
   </div>
 

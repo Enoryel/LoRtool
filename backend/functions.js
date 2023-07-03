@@ -89,7 +89,7 @@ function generatePlayersEntries(){
 
 function playerIsSelected(playerID) {
 
-    let clickedPlayer = document.getElementById(playerID);
+    let clickedPlayer = document.getElementsByName(playerID);
     let selectedPlayerNbr = isPlayerSelected.length;
     console.log("Le nombre de joueur selectionné est de : " + selectedPlayerNbr);
 
