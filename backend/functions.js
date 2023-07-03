@@ -4,6 +4,7 @@ var compteur_joueurs_old = null;
 var isPlayerSelected = [];
 var unitsDatas = [];
 var protagonists = [];
+var secondPlayer = false;
 
 //MODIFICATION EN FONCTION DU SELECTEUR DE NOMBRE DE JOUEURS
 function playerNbrSelector() {
@@ -113,11 +114,20 @@ function playerIsSelected(playerID) {
 //AFFICHER OU MASQUER JOUEURS
 
 function toogleShowUnitSelectors(playerID, flag){
-    let selectToShow = document.getElementById(playerID + '_units') ;
+    let selectToShow = document.getElementById(playerID + '_units');
+    let leftSelect = document.getElementById("left_select");
+    let rightSelect = document.getElementById("right_select");
     console.log(selectToShow);
     if (flag) {
-        selectToShow.style.display = "block";
-        console.log("J'affiche la liste du " + playerID)
+        if(!secondPlayer){
+            secondPlayer = true;
+            leftSelect.appendChild(selectToShow);
+            console.log(`J'affiche la liste du ${playerID} à gauche`);
+        }
+        else if(secondPlayer){
+            rightSelect.appendChild(selectToShow);
+            console.log(`J'affiche la liste du ${playerID} à droite`);
+        }
     }
     else if (!flag) {
         selectToShow.style.display = "none";

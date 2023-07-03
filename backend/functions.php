@@ -136,9 +136,10 @@ function generatePlayerButton($player, $align) {
 function generateUnitSelector() {
   global $players_datas, $player_nbr;
 
-  echo "<div class='row'>";
+  echo "<div class='row'><div class='col-6' id='left_select'></div><div class='col-6' id='right_select'></div></div>
+  <div class='row' id='hidden_select' style='display:none'>";
   foreach($players_datas as $player => $army){
-    echo "<div class='col text-center' style='display:none' id='{$player}_units'><select name='unit_selector' onchange=\"unitSelector('{$player}')\">";
+    echo "<div class='col text-center' id='{$player}_units'><select name='unit_selector' onchange=\"unitSelector('{$player}')\">";
     getUnitsList($army);
     echo "</select></div>";
   }
