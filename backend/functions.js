@@ -157,15 +157,25 @@ function getUnitsStats(unit, combat){
 
 function unitSelector(playerSelect) {
     unitSelected = document.getElementById(playerSelect).value;
-    unitCombat = unitsDatas[unitSelected];
+    let leftOrRight = document.getElementById(playerSelect).parentElement.id;
     
-    protagonists.push(unitCombat);
-    console.log(`Il y a ${protagonists.length} protagonistes`);
-    if (protagonists.length >= 2){
-        protagonists.splice(0, 1);
-        resolveFight(protagonists[0], protagonists[1])
+    let unitCombat = unitsDatas[unitSelected];
+    
+    protagonists[leftOrRight] = unitCombat;
+    let protagonistsNbr = Object.keys(protagonists).length;
+    console.log(`Il y a ${protagonistsNbr} protagonistes`);
+
+    for(var key in protagonists)
+        {
+        var value = protagonists[key];
+        console.log(key + " = " + value);
+        }
+
+    if (protagonistsNbr >= 2){
         console.log("zébarti");
+        resolveFight(protagonists["left_select"], protagonists["right_select"])        
     }
+    
            
 }
 
@@ -173,25 +183,26 @@ function resolveFight(A, B) {
     console.log(A + " - " + B)
     let result = document.getElementById('result');
     let keyValue = A - B;
+    console.log(keyValue)
     switch (keyValue) {
         case keyValue >= 2 :
             result.innerHTML = '3';
-            console.log("RESULTAT = " + 3);
+            console.log("RESULTAT = 3");
             console.log("-------------------");
             break;
         case keyValue = 0 || 1 :
             result.innerHTML = '4';
-            console.log("RESULTAT = " + 4);
+            console.log("RESULTAT = 4");
             console.log("-------------------");
             break;
         case keyValue = -2 || -1 :
             result.innerHTML = '5';
-            console.log("RESULTAT = " + 5);
+            console.log("RESULTAT = 5");
             console.log("-------------------");
             break;
         case keyValue = -4 || -3 :
             result.innerHTML = '6';
-            console.log("RESULTAT = " + 6);
+            console.log("RESULTAT = 6");
             console.log("-------------------");
             break;
         case keyValue = -6 || -5 :
