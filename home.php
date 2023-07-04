@@ -5,8 +5,7 @@
     include("header.php");
   ?>
 
-  <h2>Antagonistes</h2>
-  <div id="players_selector" class="my-4">
+  <div id="players_selector" class="mb-4">
     <?php
       getDatasAndGeneratePlayers();
     ?>
@@ -20,9 +19,8 @@
     ?>
   </div>
   
-    <!-- <div id="result" class="d-grid col-6 mx-auto">
-      <p>?</p>
-    </div> -->
+    <div id="result" class="d-grid col-6 mx-auto">
+    </div>
 
   <?php
     include("footer.php")

@@ -5,6 +5,8 @@ var isPlayerSelected = [];
 var unitsDatas = [];
 var protagonists = [];
 var secondPlayer = false;
+var displayedSelectUnits = 0;
+var nextSelect;
 
 //MODIFICATION EN FONCTION DU SELECTEUR DE NOMBRE DE JOUEURS
 function playerNbrSelector() {
@@ -92,7 +94,6 @@ function playerIsSelected(playerID) {
 
     let clickedPlayer = document.getElementById(playerID);
     let selectedPlayerNbr = isPlayerSelected.length;
-    console.log("Le nombre de joueur selectionné est de : " + selectedPlayerNbr);
 
 
     if (isPlayerSelected[playerID] == true){
@@ -114,48 +115,62 @@ function playerIsSelected(playerID) {
 //AFFICHER OU MASQUER JOUEURS
 
 function toogleShowUnitSelectors(playerID, flag){
-    let selectToShow = document.getElementById(playerID + '_units');
+    let selectToToggle = document.getElementById(playerID + '_units');
     let leftSelect = document.getElementById("left_select");
     let rightSelect = document.getElementById("right_select");
-    console.log(selectToShow);
+    let hiddenSelect = document.getElementById("hidden_select");
+    
+    
     if (flag) {
-        if(!secondPlayer){
-            secondPlayer = true;
-            leftSelect.appendChild(selectToShow);
-            console.log(`J'affiche la liste du ${playerID} à gauche`);
-        }
-        else if(secondPlayer){
-            rightSelect.appendChild(selectToShow);
-            console.log(`J'affiche la liste du ${playerID} à droite`);
+        switch(displayedSelectUnits){
+            case 0:
+                leftSelect.appendChild(selectToToggle);
+                displayedSelectUnits ++;
+                nextSelect = rightSelect;
+                console.log(`J'affiche la liste du ${playerID} à gauche`);
+                console.log("nextSelect = " + nextSelect.id);
+                break;
+            case 1:
+                nextSelect.appendChild(selectToToggle);
+                displayedSelectUnits ++;
+                console.log(`J'affiche la liste du ${playerID} à droite`);
+                console.log("nextSelect = " + nextSelect.id);
+                break;
         }
     }
     else if (!flag) {
-        selectToShow.style.display = "none";
+        nextSelect = selectToToggle.parentElement;
+        hiddenSelect.appendChild(selectToToggle);
+        displayedSelectUnits --;
         console.log("Je masque la liste du " + playerID)
+        console.log("nextSelect = " + nextSelect.id);
     }
+
+    console.log("Select affichés = " + displayedSelectUnits);
 }
+
+//SÉLECTIONNER UNITÉ
 
 function getUnitsStats(unit, combat){
     unitsDatas[unit] = combat;
 }
 
-function unitSelector(player) {
-    unitSelected = document.getElementById(player + '_units').value;
+function unitSelector(playerSelect) {
+    unitSelected = document.getElementById(playerSelect).value;
     unitCombat = unitsDatas[unitSelected];
-    if (protagonists.length <= 2){
-        protagonists.push(unitCombat);
+    
+    protagonists.push(unitCombat);
+    console.log(`Il y a ${protagonists.length} protagonistes`);
+    if (protagonists.length >= 2){
+        protagonists.splice(0, 1);
+        resolveFight(protagonists[0], protagonists[1])
+        console.log("zébarti");
     }
-    else if (protagonists.length >= 2){
-        protagonists.pop();
-        protagonists.push(unitCombat);
-    }
-    protagonists.forEach(element => {
-        console.log("protagoniste = " + element);  
-    });
-    resolveFight(protagonists[0], protagonists[1])   
+           
 }
 
 function resolveFight(A, B) {
+    console.log(A + " - " + B)
     let result = document.getElementById('result');
     let keyValue = A - B;
     switch (keyValue) {
