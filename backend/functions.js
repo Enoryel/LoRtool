@@ -137,6 +137,7 @@ function toogleShowUnitSelectors(playerID, flag){
                 console.log("nextSelect = " + nextSelect.id);
                 break;
         }
+        unitSelector(selectToToggle); // NON FONCTIONNEL ATM
     }
     else if (!flag) {
         nextSelect = selectToToggle.parentElement;
@@ -144,6 +145,16 @@ function toogleShowUnitSelectors(playerID, flag){
         displayedSelectUnits --;
         console.log("Je masque la liste du " + playerID)
         console.log("nextSelect = " + nextSelect.id);
+    }
+
+    let result = document.getElementById("result")
+    if (displayedSelectUnits === 2){
+        result.setAttribute("visibility","visible");
+        console.log("j'affiche les résultats");
+    }
+    else {
+        result.setAttribute("visibility", "hidden");
+        console.log("je masque les résultats");
     }
 
     console.log("Select affichés = " + displayedSelectUnits);
@@ -184,41 +195,34 @@ function resolveFight(A, B) {
     let result = document.getElementById('result');
     let keyValue = A - B;
     console.log(keyValue)
-    switch (keyValue) {
-        case keyValue >= 2 :
-            result.innerHTML = '3';
-            console.log("RESULTAT = 3");
-            console.log("-------------------");
-            break;
-        case keyValue = 0 || 1 :
-            result.innerHTML = '4';
-            console.log("RESULTAT = 4");
-            console.log("-------------------");
-            break;
-        case keyValue = -2 || -1 :
-            result.innerHTML = '5';
-            console.log("RESULTAT = 5");
-            console.log("-------------------");
-            break;
-        case keyValue = -4 || -3 :
-            result.innerHTML = '6';
-            console.log("RESULTAT = 6");
-            console.log("-------------------");
-            break;
-        case keyValue = -6 || -5 :
-            result.innerHTML = '6 & 4';
-            console.log("RESULTAT = 6/4");
-            console.log("-------------------");
-            break;
-        case keyValue = -8 || -7 :
-            result.innerHTML = '6 & 5';
-            console.log("RESULTAT = 6/5");
-            console.log("-------------------");
-            break;
-        case keyValue <= -9 :
-            result.innerHTML = '6 & 6';
-            console.log("RESULTAT = 6/6");
-            console.log("-------------------");
-            break;
+
+    if (keyValue >= 2) {
+        result.innerHTML = '3';
+        console.log("RESULTAT = 3");
+        console.log("-------------------");
+    } else if (keyValue === 0 || keyValue === 1) {
+        result.innerHTML = '4';
+        console.log("RESULTAT = 4");
+        console.log("-------------------");
+    } else if (keyValue === -2 || keyValue === -1) {
+        result.innerHTML = '5';
+        console.log("RESULTAT = 5");
+        console.log("-------------------");
+    } else if (keyValue === -4 || keyValue === -3) {
+        result.innerHTML = '6';
+        console.log("RESULTAT = 6");
+        console.log("-------------------");
+    } else if (keyValue === -6 || keyValue === -5) {
+        result.innerHTML = '6 & 4';
+        console.log("RESULTAT = 6/4");
+        console.log("-------------------");
+    } else if (keyValue === -8 || keyValue === -7) {
+        result.innerHTML = '6 & 5';
+        console.log("RESULTAT = 6/5");
+        console.log("-------------------");
+    } else if (keyValue <= -9) {
+        result.innerHTML = '6 & 6';
+        console.log("RESULTAT = 6/6");
+        console.log("-------------------");
     }
 }

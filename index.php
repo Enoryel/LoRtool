@@ -65,7 +65,7 @@
 
         </div>
 
-        <div id="submit_button" class="d-grid col-3 mx-auto">
+        <div id="submit_button" class="text-center">
           <input type="submit" value="Commencer" class="btn btn-outline-dark">
         </div>
 
